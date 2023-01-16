@@ -30,7 +30,15 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | MVP? | Id  | Feature  | Status  |  Started  | Delivered |
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
 | x   | F01 | Roll a dice |  D | 01/01/23 | 09/01/23 |
-| x   | F02 | Roll eight dices  |  B (F01) |   |
+| x   | F02 | Build MVP of game  |  B (F01) |   |
+| x   | F02I | Roll eight dices  |  P  |   |
+| x   | F02II | Roll random number of dice  |  P |   |
+| x   | F02III | Implement scorecard class  | P |   |
+| x   | F02IV | Implement counter class | P |   |
+| x   | F02V | Implement player class | P |
+| x   | F02VI | Implement player strategy | P |   |
+| x   | F02VI | Implement game class  | P |   |
+| x   | F02VIII | Simulate the game 42 times | P |   |
 | x   | F03 | Select how many games as command-line arg.  |  P  |   |
 | x   | F04 | end of game with three cranes | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
