@@ -13,5 +13,13 @@ public enum Faces {
     Faces(int score) {
         this.score = score;
     }
+
+    /**
+     *
+     * @return The score associated with this face
+     */
+    public int getScore() {
+        return this.score;
+    }
 }
 
