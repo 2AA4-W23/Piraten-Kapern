@@ -1,7 +1,7 @@
 # A1 - Piraten Karpen
 
-  * Author: < You name here >
-  * Email: < Your email here >
+  * Author: Abdallah Alqashqish
+  * Email: alqashqa@mcmaster.ca
 
 ## Build and Execution
 
