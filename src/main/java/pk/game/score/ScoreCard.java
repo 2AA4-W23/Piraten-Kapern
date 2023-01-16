@@ -12,4 +12,12 @@ public class ScoreCard {
     public ScoreCard() {
         this.scoreCount = new HashMap<>();
     }
+
+    /**
+     *
+     * @return The hashmap used to keep track of the score
+     */
+    public HashMap<Faces, Integer> getScoreCount() {
+        return this.scoreCount;
+    }
 }
