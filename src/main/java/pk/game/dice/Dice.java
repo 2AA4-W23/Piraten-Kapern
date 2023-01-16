@@ -26,5 +26,18 @@ public class Dice {
 
         return rollResult;
     }
+
+    /**
+     *
+     * @param min The minimum number of times to roll the dice
+     * @param max The maximum number of times to roll the dice
+     * @return The result of rolling the dice a random number of times between [min, max]
+     */
+    public Faces[] rollRandTimes(int min, int max) {
+        Random rand = new Random();
+        int numRolls = rand.nextInt(min, max+1);
+
+        return this.rollNTimes(numRolls);
+    }
     
 }
