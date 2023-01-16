@@ -1,4 +1,4 @@
-import pk.Dice;
+import pk.game.dice.Dice;
 
 public class PiratenKarpen {
 
