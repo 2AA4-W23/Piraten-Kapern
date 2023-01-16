@@ -1,4 +1,4 @@
-package pk;
+package pk.game.dice;
 import java.util.Arrays;
 import java.util.Random;
 
