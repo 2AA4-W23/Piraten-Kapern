@@ -6,4 +6,12 @@ public class Counter {
     public Counter() {
         this.count = 0;
     }
+
+    /**
+     *
+     * @return The count so far
+     */
+    public int getCount() {
+        return this.count;
+    }
 }
