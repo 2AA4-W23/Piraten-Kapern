@@ -31,4 +31,12 @@ public class Player {
     public Dice getDice() {
         return this.dice;
     }
+
+    /**
+     *
+     * @return The counter keeping track of the number of wins this player has
+     */
+    public Counter getWins() {
+        return this.wins;
+    }
 }
