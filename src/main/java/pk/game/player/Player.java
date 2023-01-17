@@ -10,6 +10,7 @@ public class Player {
     private final Dice dice;
     private final Counter wins;
     private final Counter turnsPlayed;
+    private final Counter rollsPlayed;
     private boolean isTurnOver;
 
     public Player() {
@@ -17,6 +18,7 @@ public class Player {
         this.dice = new Dice();
         this.wins = new Counter();
         this.turnsPlayed = new Counter();
+        this.rollsPlayed = new Counter();
         this.isTurnOver = false;
     }
 
@@ -50,6 +52,14 @@ public class Player {
      */
     public Counter getTurnsPlayed() {
         return this.turnsPlayed;
+    }
+
+    /**
+     *
+     * @return The number of rolls used by the player in this turn
+     */
+    public Counter getRollsPlayed() {
+        return this.rollsPlayed;
     }
 
     /**
