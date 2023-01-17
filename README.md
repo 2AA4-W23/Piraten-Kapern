@@ -33,7 +33,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F02 | Build MVP of game  |  B (F01) | 16/01/23 |
 | x   | F02I | Roll eight dices  |  D  | 16/01/23 | 16/01/23
 | x   | F02II | Roll random number of dice  |  D | 16/01/23 | 16/01/23
-| x   | F02III | Implement scorecard class  | P | 16/01/23 |
+| x   | F02III | Implement scorecard class  | D | 16/01/23 | 16/01/232
 | x   | F02IV | Implement counter class | P |   |
 | x   | F02V | Implement player class | P |
 | x   | F02VI | Implement player strategy | P |   |
