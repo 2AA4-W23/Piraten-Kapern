@@ -16,7 +16,7 @@ public enum Faces {
 
     /**
      *
-     * @return The score associated with this face
+     * @return The score associated with this {@link Faces}
      */
     public int getScore() {
         return this.score;
