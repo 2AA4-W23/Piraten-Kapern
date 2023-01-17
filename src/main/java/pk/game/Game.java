@@ -53,12 +53,17 @@ public class Game {
 
             // Find who won
             if(p1Score >= ScoreCard.WIN_SCORE || p2Score >= ScoreCard.WIN_SCORE) {
+                // Find player who gets extra turn
+                if(p1Score >= ScoreCard.WIN_SCORE) {
+                    this.getPlayer2().play();
+                } else {
+                    this.getPlayer1().play();
+                }
+
                 if(p1Score > p2Score) { // Did player p1 win?
                     this.getPlayer1().getWins().add(1);
-                    this.getPlayer2().play();
                 } else if(p1Score < p2Score) { // Did player p2 win?
                     this.getPlayer2().getWins().add(1);
-                    this.getPlayer1().play();
                 }
                 break;
             }
