@@ -9,7 +9,7 @@ public class Counter {
 
     /**
      *
-     * @return The count so far
+     * @return The {@link Counter#count} so far
      */
     public int getCount() {
         return this.count;
