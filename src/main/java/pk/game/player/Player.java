@@ -161,6 +161,9 @@ public class Player {
         this.getTurnsPlayed().add(1);
         this.resetTurn();
 
+        // Log player status after turn
+        GameLogger.debugLog(this.toString());
+
         // Log end of turn
         GameLogger.debugLog(String.format(
                 "Player #%d turn %d over\n",
