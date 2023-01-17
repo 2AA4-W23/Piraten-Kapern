@@ -65,6 +65,9 @@ public class Game {
                 } else if(p1Score < p2Score) { // Did player p2 win?
                     this.getPlayer2().getWins().add(1);
                 }
+
+                // Otherwise, the score of both players are equal it is a draw. Game ends as a tie.
+
                 break;
             }
         } while(true);
