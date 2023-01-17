@@ -5,6 +5,7 @@ import pk.game.dice.Dice;
 import pk.game.score.ScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
 import pk.game.strategy.player.strategies.RandomStrategy;
+import pk.logging.GameLogger;
 
 public class Player {
 
@@ -138,9 +139,18 @@ public class Player {
      * Let this player play their turn
      */
     public void play() {
+        GameLogger.debugLog(String.format(
+                "Player #%d playing turn %d",
+                this.getId(),
+                this.getTurnsPlayed().getCount()+1
+        ));
+
         do {
             this.strategy.use(this);
         } while (!this.isTurnOver()); // Is the players turn not yet over?
+
+        // Log player status after turn
+        GameLogger.debugLog(this.toString());
 
         if(this.getSkullsRolled().getCount() < 3) { // Did the player not roll 3 or more skulls?
             // Count score collected in this turn
@@ -149,6 +159,13 @@ public class Player {
 
         this.getTurnsPlayed().add(1);
         this.resetTurn();
+
+        // Log end of turn
+        GameLogger.debugLog(String.format(
+                "Player #%d turn %d over\n",
+                this.getId(),
+                this.getTurnsPlayed().getCount()
+        ));
     }
 
     @Override
