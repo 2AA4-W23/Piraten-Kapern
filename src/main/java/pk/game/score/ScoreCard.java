@@ -63,4 +63,9 @@ public class ScoreCard {
     public void clear() {
         this.getScoreCount().clear();
     }
+
+    @Override
+    public String toString() {
+        return this.getScoreCount().toString();
+    }
 }
