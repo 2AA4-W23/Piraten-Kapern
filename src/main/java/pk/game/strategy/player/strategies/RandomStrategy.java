@@ -17,7 +17,7 @@ public class RandomStrategy implements PlayerStrategy {
 
     /**
      *
-     * @return Get a reference to the random strategy instance
+     * @return Get a reference to the {@link RandomStrategy} {@link RandomStrategy#INSTANCE}
      */
     public static RandomStrategy getInstance() {
         return RandomStrategy.INSTANCE;
