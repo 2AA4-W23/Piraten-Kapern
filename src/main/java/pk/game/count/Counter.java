@@ -14,4 +14,12 @@ public class Counter {
     public int getCount() {
         return this.count;
     }
+
+    /**
+     *
+     * @param count The new count value
+     */
+    public void setCount(int count) {
+        this.count = count;
+    }
 }
