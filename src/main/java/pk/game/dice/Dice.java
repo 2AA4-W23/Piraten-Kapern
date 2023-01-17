@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class Dice {
 
+    public static final int MIN_DICE = 2; // Minimum number of dice a player can roll
+    public static final int MAX_DICE = 8; // Maximum number of dice a player can roll
+
     public Faces roll() {
         int howManyFaces = Faces.values().length;
         System.out.println("  (DEBUG) there are " + howManyFaces + " faces");
