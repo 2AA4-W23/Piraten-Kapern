@@ -54,4 +54,11 @@ public class ScoreCard {
             this.getScoreCount().merge(k, v, Integer::sum);
         });
     }
+
+    /**
+     * Clear the scorecard
+     */
+    public void clear() {
+        this.getScoreCount().clear();
+    }
 }
