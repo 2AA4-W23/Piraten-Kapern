@@ -7,6 +7,7 @@ import pk.game.score.ScoreCard;
 public class Player {
 
     private final ScoreCard scoreCard;
+    private final ScoreCard turnScoreCard;
     private final Dice dice;
     private final Counter wins;
     private final Counter turnsPlayed;
@@ -16,6 +17,7 @@ public class Player {
 
     public Player() {
         this.scoreCard = new ScoreCard();
+        this.turnScoreCard = new ScoreCard();
         this.dice = new Dice();
         this.wins = new Counter();
         this.turnsPlayed = new Counter();
@@ -30,6 +32,14 @@ public class Player {
      */
     public ScoreCard getScoreCard() {
         return this.scoreCard;
+    }
+
+    /**
+     *
+     * @return The scorecard used to keep track of the score during the current turn
+     */
+    public ScoreCard getTurnScoreCard() {
+        return this.turnScoreCard;
     }
 
     /**
