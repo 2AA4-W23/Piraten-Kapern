@@ -131,6 +131,9 @@ public class Player {
             this.getScoreCard().merge(this.getTurnScoreCard());
         }
 
+        // Count this turn to the players turns
+        this.getTurnsPlayed().add(1);
+
         // Reset the player so they can play their next turn
         this.resetTurn();
     }
