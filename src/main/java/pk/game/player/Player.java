@@ -150,8 +150,13 @@ public class Player {
             this.strategy.use(this);
         } while (!this.isTurnOver()); // Is the players turn not yet over?
 
-        // Log player status after turn
-        GameLogger.debugLog(this.toString());
+        // Log what has been collected during this turn
+        GameLogger.debugLog(String.format(
+                "Player #%d collected during turn %d: %s",
+                this.getId(),
+                this.getTurnsPlayed().getCount(),
+                this.getTurnScoreCard()
+        ));
 
         if(this.getSkullsRolled().getCount() < 3) { // Did the player not roll 3 or more skulls?
             // Count score collected in this turn
