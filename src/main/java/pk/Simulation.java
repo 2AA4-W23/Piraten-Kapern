@@ -9,4 +9,12 @@ public class Simulation {
     public Simulation() {
         this.game = new Game();
     }
+
+    /**
+     *
+     * @return The game being used by this simulation
+     */
+    public Game getGame() {
+        return this.game;
+    }
 }
