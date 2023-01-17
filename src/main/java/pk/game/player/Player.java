@@ -11,6 +11,7 @@ public class Player {
     private final Counter wins;
     private final Counter turnsPlayed;
     private final Counter rollsPlayed;
+    private final Counter skullsRolled;
     private boolean isTurnOver;
 
     public Player() {
@@ -19,6 +20,7 @@ public class Player {
         this.wins = new Counter();
         this.turnsPlayed = new Counter();
         this.rollsPlayed = new Counter();
+        this.skullsRolled = new Counter();
         this.isTurnOver = false;
     }
 
@@ -60,6 +62,14 @@ public class Player {
      */
     public Counter getRollsPlayed() {
         return this.rollsPlayed;
+    }
+
+    /**
+     *
+     * @return The counter used to keep track of the number of skulls rolled during current turn
+     */
+    public Counter getSkullsRolled() {
+        return this.skullsRolled;
     }
 
     /**
