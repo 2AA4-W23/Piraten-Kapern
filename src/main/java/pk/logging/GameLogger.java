@@ -21,7 +21,7 @@ public class GameLogger {
         if(GameLogger.SHOULD_LOG_DEBUG) { // Has the game been launched in debug mode?
             Logger logger = LogManager.getLogger(StackLocator.getInstance().getCallerClass(2));
             Configurator.setLevel(logger, Level.DEBUG);
-            logger.log(Level.DEBUG, message); // Log the message to the console
+            logger.debug(message); // Log the message to the console
         }
     }
 
