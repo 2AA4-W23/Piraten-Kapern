@@ -43,7 +43,7 @@ public class RandomStrategy implements PlayerStrategy {
         // Log each roll the user plays in their turn
         GameLogger.debugLog(String.format(
                 "Roll #%d: %s",
-                player.getRollsPlayed().getCount()+1,
+                player.getRollsPlayed().getCount(),
                 Arrays.toString(rollResults)
         ));
 
