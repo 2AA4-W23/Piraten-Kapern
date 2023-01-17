@@ -133,6 +133,7 @@ public class Player {
     public void resetGame() {
         this.resetTurn();
         this.getScoreCard().clear();
+        this.getTurnsPlayed().reset();
     }
 
     /**
