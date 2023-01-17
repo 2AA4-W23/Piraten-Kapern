@@ -3,7 +3,9 @@ package pk.game.score;
 import pk.game.dice.Faces;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 public class ScoreCard {
 
@@ -30,5 +32,16 @@ public class ScoreCard {
     public void addScore(Faces face, int count) {
         // If there is already a record of this Face just increase by count, otherwise set to count
         this.getScoreCount().compute(face, (k, v) -> (Objects.isNull(v)) ? count : v+count);
+    }
+
+    /**
+     *
+     * @return The total score recorded by this scorecard
+     */
+    public int totalScore() {
+        Set<Map.Entry<Faces, Integer>> entrySet = this.getScoreCount().entrySet();
+
+        // Sum up the score
+        return entrySet.stream().mapToInt(e -> e.getKey().getScore()*e.getValue()).sum();
     }
 }
