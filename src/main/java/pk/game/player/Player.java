@@ -113,6 +113,14 @@ public class Player {
     }
 
     /**
+     * Reset the player so they can play a new game
+     */
+    public void resetGame() {
+        this.resetTurn();
+        this.getScoreCard().clear();
+    }
+
+    /**
      * Let this player play their turn
      */
     public void play() {

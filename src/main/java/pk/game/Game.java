@@ -31,6 +31,14 @@ public class Game {
     }
 
     /**
+     * Reset the game so that it can be replayed by the players
+     */
+    public void reset() {
+        this.getPlayer1().resetGame();
+        this.getPlayer2().resetGame();
+    }
+
+    /**
      * Play the games
      */
     public void play() {
