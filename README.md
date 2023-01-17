@@ -36,7 +36,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F02III | Implement scorecard class  | D | 16/01/23 | 16/01/232
 | x   | F02IV | Implement counter class | D | 16/01/23 | 16/01/23
 | x   | F02V | Implement player class | D | 16/01/23 | 16/01/23
-| x   | F02VI | Implement player strategy | P | 16/01/23 |
+| x   | F02VI | Implement player strategy | D | 16/01/23 | 16/01/23
 | x   | F02VI | Implement game class  | P |   |
 | x   | F02VIII | Simulate the game 42 times | P |   |
 | x   | F03 | Select how many games as command-line arg.  |  P  |   |
