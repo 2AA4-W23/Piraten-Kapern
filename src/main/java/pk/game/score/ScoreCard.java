@@ -9,6 +9,8 @@ import java.util.Set;
 
 public class ScoreCard {
 
+    public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
+
     // HashMap to keep count of the
     private final HashMap<Faces, Integer> scoreCount;
 
