@@ -3,9 +3,12 @@ package pk.game.player;
 import pk.game.count.Counter;
 import pk.game.dice.Dice;
 import pk.game.score.ScoreCard;
+import pk.game.strategy.player.PlayerStrategy;
+import pk.game.strategy.player.strategies.RandomStrategy;
 
 public class Player {
 
+    private final PlayerStrategy strategy;
     private final ScoreCard scoreCard;
     private final ScoreCard turnScoreCard;
     private final Dice dice;
@@ -16,6 +19,7 @@ public class Player {
     private boolean isTurnOver;
 
     public Player() {
+        this.strategy = RandomStrategy.getInstance();
         this.scoreCard = new ScoreCard();
         this.turnScoreCard = new ScoreCard();
         this.dice = new Dice();
@@ -96,5 +100,30 @@ public class Player {
      */
     public void setTurnOver(boolean turnOver) {
         this.isTurnOver = turnOver;
+    }
+
+    /**
+     * Reset the player so they can play their next turn
+     */
+    private void resetTurn() {
+        this.getTurnScoreCard().clear();
+        this.getSkullsRolled().reset();
+        this.getRollsPlayed().reset();
+        this.setTurnOver(false);
+    }
+
+    /**
+     * Let this player play their turn
+     */
+    public void play() {
+        this.strategy.use(this);
+
+        if(this.getSkullsRolled().getCount() < 3) { // Did the player not roll 3 or more skulls?
+            // Count score collected in this turn
+            this.getScoreCard().merge(this.getTurnScoreCard());
+        }
+
+        // Reset the player so they can play their next turn
+        this.resetTurn();
     }
 }
