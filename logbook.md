@@ -1,5 +1,9 @@
 ## Logbook
 
-| Date | Description | 
+| Date | Description |
 | :-:  |:-:  |
 | 09/01/2023   | Complete F01 by checking dice roll code and add logbook |
+| 10/01/2023   | Implement rolling a certain number of dice and scorecard features |
+| 11/01/2023   | Implement player and game simulation features, ending step #2 |
+| 16/01/2023   | Roll back project to start of step 2 and reimplement code to correctly match the game rules |
+| 17/01/2023   | Check which player has over 6k points and make other player play an extra turn |
