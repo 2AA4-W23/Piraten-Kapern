@@ -39,7 +39,10 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F02VI | Implement player strategy | D | 16/01/23 | 16/01/23
 | x   | F02VI | Implement game class  | D | 16/01/23 | 16/01/23
 | x   | F02VIII | Simulate the game 42 times | D | 16/01/23 | 16/01/23
-| x   | F03 | Select how many games as command-line arg.  |  P  |   |
+| x   | F03 | Fix code and implement logging.  |  P  |   |
+| x   | F03I | Implement simulation class to handle all simulation tasks.  |  P  |   |
+| x   | F03II | Update documentation  |  P  |   |
+| x   | F03III | Implement Log4j logger  |  P  |   |
 | x   | F04 | end of game with three cranes | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
 | x   | F06 | Score points: 3-of-a-kind | B (F04) | | 
