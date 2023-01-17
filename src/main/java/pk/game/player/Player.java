@@ -16,4 +16,12 @@ public class Player {
         this.wins = new Counter();
     }
 
+    /**
+     *
+     * @return The scorecard that belongs to this user
+     */
+    public ScoreCard getScoreCard() {
+        return this.scoreCard;
+    }
+
 }
