@@ -126,17 +126,14 @@ public class Player {
     public void play() {
         do {
             this.strategy.use(this);
-        } while (!this.isTurnOver());
+        } while (!this.isTurnOver()); // Is the players turn not yet over?
 
         if(this.getSkullsRolled().getCount() < 3) { // Did the player not roll 3 or more skulls?
             // Count score collected in this turn
             this.getScoreCard().merge(this.getTurnScoreCard());
         }
 
-        // Count this turn to the players turns
         this.getTurnsPlayed().add(1);
-
-        // Reset the player so they can play their next turn
         this.resetTurn();
     }
 }
