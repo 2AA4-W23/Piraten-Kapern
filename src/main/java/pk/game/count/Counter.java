@@ -38,4 +38,11 @@ public class Counter {
     public void subtract(int count) {
         this.add(-count);
     }
+
+    /**
+     * Reset the counter back to 0
+     */
+    public void reset() {
+        this.setCount(0);
+    }
 }
