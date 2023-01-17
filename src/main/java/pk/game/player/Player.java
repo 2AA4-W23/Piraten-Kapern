@@ -32,7 +32,7 @@ public class Player {
 
     /**
      *
-     * @return The scorecard that belongs to this user
+     * @return The {@link ScoreCard} that belongs to this user
      */
     public ScoreCard getScoreCard() {
         return this.scoreCard;
@@ -40,7 +40,7 @@ public class Player {
 
     /**
      *
-     * @return The scorecard used to keep track of the score during the current turn
+     * @return The {@link ScoreCard} used to keep track of the score during the current turn
      */
     public ScoreCard getTurnScoreCard() {
         return this.turnScoreCard;
@@ -48,7 +48,7 @@ public class Player {
 
     /**
      *
-     * @return The dice that belongs to this player
+     * @return The {@link Dice} that belongs to this player
      */
     public Dice getDice() {
         return this.dice;
@@ -56,7 +56,7 @@ public class Player {
 
     /**
      *
-     * @return The counter keeping track of the number of wins this player has
+     * @return The {@link Counter} keeping track of the number of wins this player has
      */
     public Counter getWins() {
         return this.wins;
@@ -64,7 +64,7 @@ public class Player {
 
     /**
      *
-     * @return The counter keeping track of the number of turns this player has played
+     * @return The {@link Counter} keeping track of the number of turns this player has played
      */
     public Counter getTurnsPlayed() {
         return this.turnsPlayed;
@@ -72,7 +72,7 @@ public class Player {
 
     /**
      *
-     * @return The number of rolls used by the player in this turn
+     * @return The {@link Counter} keeping track of the number of rolls used by the player in this turn
      */
     public Counter getRollsPlayed() {
         return this.rollsPlayed;
@@ -80,7 +80,7 @@ public class Player {
 
     /**
      *
-     * @return The counter used to keep track of the number of skulls rolled during current turn
+     * @return The {@link Counter} used to keep track of the number of skulls rolled during current turn
      */
     public Counter getSkullsRolled() {
         return this.skullsRolled;
