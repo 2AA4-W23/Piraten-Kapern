@@ -5,10 +5,12 @@ import pk.game.dice.Dice;
 import pk.game.score.ScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
 import pk.game.strategy.player.strategies.RandomStrategy;
-import pk.logging.GameLogger;
 
 public class Player {
 
+    private static int PLAYER_COUNT = 1;
+
+    private final int id;
     private final PlayerStrategy strategy;
     private final ScoreCard scoreCard;
     private final ScoreCard turnScoreCard;
@@ -20,6 +22,7 @@ public class Player {
     private boolean isTurnOver;
 
     public Player() {
+        this.id = Player.PLAYER_COUNT;
         this.strategy = RandomStrategy.getInstance();
         this.scoreCard = new ScoreCard();
         this.turnScoreCard = new ScoreCard();
@@ -29,6 +32,16 @@ public class Player {
         this.rollsPlayed = new Counter();
         this.skullsRolled = new Counter();
         this.isTurnOver = false;
+
+        Player.PLAYER_COUNT++;
+    }
+
+    /**
+     *
+     * @return The id of this player
+     */
+    public int getId() {
+        return this.id;
     }
 
     /**
@@ -140,12 +153,12 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "Player #" + this.getId() + " {" +
                 "scoreCard=" + this.getScoreCard() +
                 ", Total Score= " + this.getScoreCard().totalScore() +
                 ", turnScoreCard=" + this.getTurnScoreCard() +
                 ", Turn Total Score= " + this.getTurnScoreCard().totalScore() +
-                ", sins=" + this.getWins().getCount() +
+                ", wins=" + this.getWins().getCount() +
                 ", turnsPlayed=" + this.getTurnsPlayed().getCount() +
                 ", rollsPlayed=" + this.getRollsPlayed().getCount() +
                 ", skullsRolled=" + this.getSkullsRolled().getCount() +
