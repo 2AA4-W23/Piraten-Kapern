@@ -16,7 +16,7 @@ public class Simulation {
 
     /**
      *
-     * @return The game being used by this simulation
+     * @return The {@link Game} being used by this simulation
      */
     public Game getGame() {
         return this.game;
