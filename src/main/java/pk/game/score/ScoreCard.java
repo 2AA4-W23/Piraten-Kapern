@@ -3,6 +3,7 @@ package pk.game.score;
 import pk.game.dice.Faces;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class ScoreCard {
 
@@ -19,5 +20,15 @@ public class ScoreCard {
      */
     public HashMap<Faces, Integer> getScoreCount() {
         return this.scoreCount;
+    }
+
+    /**
+     *
+     * @param face The {@link pk.game.dice.Faces} to add
+     * @param count The number of this {@link pk.game.dice.Faces} to add to the score
+     */
+    public void addScore(Faces face, int count) {
+        // If there is already a record of this Face just increase by count, otherwise set to count
+        this.getScoreCount().compute(face, (k, v) -> (Objects.isNull(v)) ? count : v+count);
     }
 }
