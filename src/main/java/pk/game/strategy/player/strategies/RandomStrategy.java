@@ -65,8 +65,9 @@ public class RandomStrategy implements PlayerStrategy {
         if(threeSkullsRolled) {
             // 3 skulls have been rolled so players turn is over
             GameLogger.debugLog(String.format(
-                    "Player #%d turn ended because 3 skulls have been rolled",
-                    player.getId()
+                    "Player #%d turn ended because %d skulls have been rolled",
+                    player.getId(),
+                    player.getSkullsRolled().getCount()
             ));
         } else if(playerTurnChoice) {
             // Player decided to stop rolling
