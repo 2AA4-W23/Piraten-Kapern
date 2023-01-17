@@ -22,4 +22,12 @@ public class Counter {
     public void setCount(int count) {
         this.count = count;
     }
+
+    /**
+     *
+     * @param count The number to add to the current count
+     */
+    public void add(int count) {
+        this.setCount(this.getCount()+count);
+    }
 }
