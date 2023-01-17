@@ -5,6 +5,7 @@ import pk.game.dice.Dice;
 import pk.game.score.ScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
 import pk.game.strategy.player.strategies.RandomStrategy;
+import pk.logging.GameLogger;
 
 public class Player {
 
@@ -135,5 +136,20 @@ public class Player {
 
         this.getTurnsPlayed().add(1);
         this.resetTurn();
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "scoreCard=" + this.getScoreCard() +
+                ", Total Score= " + this.getScoreCard().totalScore() +
+                ", turnScoreCard=" + this.getTurnScoreCard() +
+                ", Turn Total Score= " + this.getTurnScoreCard().totalScore() +
+                ", sins=" + this.getWins().getCount() +
+                ", turnsPlayed=" + this.getTurnsPlayed().getCount() +
+                ", rollsPlayed=" + this.getRollsPlayed().getCount() +
+                ", skullsRolled=" + this.getSkullsRolled().getCount() +
+                ", isTurnOver=" + this.isTurnOver() +
+                '}';
     }
 }
