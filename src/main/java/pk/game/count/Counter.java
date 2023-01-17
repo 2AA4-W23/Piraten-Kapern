@@ -30,4 +30,12 @@ public class Counter {
     public void add(int count) {
         this.setCount(this.getCount()+count);
     }
+
+    /**
+     *
+     * @param count The number to subtract from the current count
+     */
+    public void subtract(int count) {
+        this.add(-count);
+    }
 }
