@@ -44,4 +44,14 @@ public class ScoreCard {
         // Sum up the score
         return entrySet.stream().mapToInt(e -> e.getKey().getScore()*e.getValue()).sum();
     }
+
+    /**
+     *
+     * @param scoreCard The scorecard to merge into this one
+     */
+    public void merge(ScoreCard scoreCard) {
+        scoreCard.getScoreCount().forEach((k, v) -> {
+            this.getScoreCount().merge(k, v, Integer::sum);
+        });
+    }
 }
