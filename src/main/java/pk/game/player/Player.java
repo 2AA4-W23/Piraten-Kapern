@@ -124,7 +124,9 @@ public class Player {
      * Let this player play their turn
      */
     public void play() {
-        this.strategy.use(this);
+        do {
+            this.strategy.use(this);
+        } while (!this.isTurnOver());
 
         if(this.getSkullsRolled().getCount() < 3) { // Did the player not roll 3 or more skulls?
             // Count score collected in this turn
