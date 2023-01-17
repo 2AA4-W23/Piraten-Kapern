@@ -1,6 +1,7 @@
 package pk;
 
 import pk.game.Game;
+import pk.logging.GameLogger;
 
 public class Simulation {
 
@@ -27,10 +28,14 @@ public class Simulation {
      */
     public void run() {
         // Simulate games
-        for(int i=0; i < Simulation.NUM_SIMS; i++) {
+        for(int i=1; i <= Simulation.NUM_SIMS; i++) {
+            GameLogger.debugLog(String.format("Game #%d\n", i));
+
             // Simulate the game
             this.game.play();
             this.game.reset();
+
+            GameLogger.debugLog(String.format("Game #%d complete!\n", i));
         }
     }
 
