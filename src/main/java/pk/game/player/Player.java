@@ -9,11 +9,13 @@ public class Player {
     private final ScoreCard scoreCard;
     private final Dice dice;
     private final Counter wins;
+    private final Counter turnsPlayed;
 
     public Player() {
         this.scoreCard = new ScoreCard();
         this.dice = new Dice();
         this.wins = new Counter();
+        this.turnsPlayed = new Counter();
     }
 
     /**
@@ -38,5 +40,13 @@ public class Player {
      */
     public Counter getWins() {
         return this.wins;
+    }
+
+    /**
+     *
+     * @return The counter keeping track of the number of turns this player has played
+     */
+    public Counter getTurnsPlayed() {
+        return this.turnsPlayed;
     }
 }
