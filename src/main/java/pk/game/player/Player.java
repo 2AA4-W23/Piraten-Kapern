@@ -24,4 +24,11 @@ public class Player {
         return this.scoreCard;
     }
 
+    /**
+     *
+     * @return The dice that belongs to this player
+     */
+    public Dice getDice() {
+        return this.dice;
+    }
 }
