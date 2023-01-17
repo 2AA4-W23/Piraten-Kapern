@@ -16,7 +16,7 @@ public class Game {
 
     /**
      *
-     * @return The first player in this game
+     * @return The first {@link Player} in this game
      */
     public Player getPlayer1() {
         return this.p1;
@@ -24,14 +24,14 @@ public class Game {
 
     /**
      *
-     * @return The second player in this game
+     * @return The second {@link Player} in this game
      */
     public Player getPlayer2() {
         return this.p2;
     }
 
     /**
-     * Reset the game so that it can be replayed by the players
+     * Reset the game so that it can be replayed by the {@link Player}s
      */
     public void reset() {
         this.getPlayer1().resetGame();
