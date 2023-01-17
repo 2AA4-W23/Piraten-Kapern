@@ -20,7 +20,7 @@ public class ScoreCard {
 
     /**
      *
-     * @return The hashmap used to keep track of the score
+     * @return The {@link HashMap<>} used to keep track of the score
      */
     public HashMap<Faces, Integer> getScoreCount() {
         return this.scoreCount;
@@ -49,7 +49,7 @@ public class ScoreCard {
 
     /**
      *
-     * @param scoreCard The scorecard to merge into this one
+     * @param scoreCard The {@link ScoreCard} to merge into this one
      */
     public void merge(ScoreCard scoreCard) {
         scoreCard.getScoreCount().forEach((k, v) -> {
@@ -58,7 +58,7 @@ public class ScoreCard {
     }
 
     /**
-     * Clear the scorecard
+     * Clear the {@link ScoreCard}
      */
     public void clear() {
         this.getScoreCount().clear();
