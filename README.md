@@ -43,6 +43,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F03I | Implement simulation class to handle all simulation tasks.  |  D  | 17/01/23  | 17/01/23
 | x   | F03II | Update documentation  |  D  |  17/01/23  | 17/01/23
 | x   | F03III | Implement Log4j logger  |  P  | 17/01/23 |
+| x   | F03IV | Make player strategy have general methods that every strategy has  |  P  |  |
 | x   | F04 | end of game with three cranes | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
 | x   | F06 | Score points: 3-of-a-kind | B (F04) | | 
