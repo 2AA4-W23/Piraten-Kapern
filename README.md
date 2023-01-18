@@ -23,7 +23,9 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
  * Status: 
    * Pending (P), Started (S), Blocked (B), Done (D)
  * Definition of Done (DoD):
-   * < Your DoD goes here >
+   * Works as a standalone feature. No bugs, exceptions or unexpected behaviour
+   * Works alongside the other features that have already been implemented
+   * Matches all expected business logic and requirements
 
 ### Backlog 
 
