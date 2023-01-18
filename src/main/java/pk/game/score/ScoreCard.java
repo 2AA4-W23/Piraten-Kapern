@@ -1,6 +1,6 @@
 package pk.game.score;
 
-import pk.game.dice.Faces;
+import pk.game.score.scorable.Faces;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,8 +28,8 @@ public class ScoreCard {
 
     /**
      *
-     * @param face The {@link pk.game.dice.Faces} to add
-     * @param count The number of this {@link pk.game.dice.Faces} to add to the score
+     * @param face The {@link Faces} to add
+     * @param count The number of this {@link Faces} to add to the score
      */
     public void addScore(Faces face, int count) {
         // If there is already a record of this Face just increase by count, otherwise set to count

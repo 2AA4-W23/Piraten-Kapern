@@ -1,6 +1,6 @@
-package pk.game.dice;
+package pk.game.score.scorable;
 
-public enum Faces {
+public enum Faces implements Scorable {
     MONKEY(0),
     PARROT(0),
     GOLD(100),
@@ -18,6 +18,7 @@ public enum Faces {
      *
      * @return The score associated with this {@link Faces}
      */
+    @Override
     public int getScore() {
         return this.score;
     }

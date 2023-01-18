@@ -1,4 +1,6 @@
 package pk.game.dice;
+import pk.game.score.scorable.Faces;
+
 import java.util.Random;
 
 public class Dice {
