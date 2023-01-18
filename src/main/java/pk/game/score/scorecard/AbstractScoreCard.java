@@ -34,6 +34,12 @@ public abstract class AbstractScoreCard {
      */
     public abstract void clear();
 
+    /**
+     *
+     * @return The total score found in this score card
+     */
+    public abstract int totalScore();
+
     @Override
     public String toString() {
         return this.getScoreCount().toString();
