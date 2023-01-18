@@ -1,6 +1,7 @@
 package pk.game.score;
 
 import pk.game.score.scorable.Faces;
+import pk.game.score.scorable.Scorable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,7 @@ public class ScoreCard {
     public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
 
     // HashMap to keep count of the
-    private final HashMap<Faces, Integer> scoreCount;
+    private final HashMap<Scorable, Integer> scoreCount;
 
     public ScoreCard() {
         this.scoreCount = new HashMap<>();
@@ -22,26 +23,26 @@ public class ScoreCard {
      *
      * @return The {@link HashMap<>} used to keep track of the score
      */
-    public HashMap<Faces, Integer> getScoreCount() {
+    public HashMap<Scorable, Integer> getScoreCount() {
         return this.scoreCount;
     }
 
     /**
      *
-     * @param face The {@link Faces} to add
+     * @param face The {@link Scorable} to add
      * @param count The number of this {@link Faces} to add to the score
      */
-    public void addScore(Faces face, int count) {
+    public void addScore(Scorable face, int count) {
         // If there is already a record of this Face just increase by count, otherwise set to count
         this.getScoreCount().compute(face, (k, v) -> (Objects.isNull(v)) ? count : v+count);
     }
 
     /**
      *
-     * @return The total score recorded by this scorecard
+     * @return The total score recorded by this {@link ScoreCard}
      */
     public int totalScore() {
-        Set<Map.Entry<Faces, Integer>> entrySet = this.getScoreCount().entrySet();
+        Set<Map.Entry<Scorable, Integer>> entrySet = this.getScoreCount().entrySet();
 
         // Sum up the score
         return entrySet.stream().mapToInt(e -> e.getKey().getScore()*e.getValue()).sum();
