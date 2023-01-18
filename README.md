@@ -45,7 +45,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F03I | Implement simulation class to handle all simulation tasks.  |  D  | 17/01/23  | 17/01/23
 | x   | F03II | Update documentation  |  D  |  17/01/23  | 17/01/23
 | x   | F03III | Implement Log4j logger  |  P  | 17/01/23 | 18/01/23
-| x   | F03IV | Implement general Scorable so that we can have different scorable types  |  P  |  |
+| x   | F03IV | Implement general Scorable so that we can have different scorable types  |  P  | 18/01/23 |
 | x   | F03V | Implement generic scorecard to differentiate between game and turn scorecards  |  P  |  |
 | x   | F04 | end of game with three cranes | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
