@@ -4,14 +4,13 @@ import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.AbstractScoreCard;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 public class TurnScoreCard extends AbstractScoreCard {
     @Override
     public void addScore(Scorable face, int count) {
-        // If there is already a record of this Face just increase by count, otherwise set to count
-        super.getScoreCount().compute(face, (k, v) -> (Objects.isNull(v)) ? count : v+count);
+        // If there is already a record of this Face just overwrite it
+        super.getScoreCount().compute(face, (k, v) -> count);
     }
 
     @Override
