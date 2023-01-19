@@ -47,35 +47,6 @@ public class Dice {
         this.setFace(null);
     }
 
-    /**
-     *
-     * @param n The number of times to roll the dice
-     * @return The result of rolling the dice n times
-     */
-    public Faces[] rollNTimes(int n) {
-        Faces[] rollResult = new Faces[n];
-
-        for(int i=0; i < n; i++) {
-            this.roll();
-            rollResult[i] = this.getFace();
-        }
-
-        return rollResult;
-    }
-
-    /**
-     *
-     * @param min The minimum number of times to roll the dice
-     * @param max The maximum number of times to roll the dice
-     * @return The result of rolling the dice a random number of times between [min, max]
-     */
-    public Faces[] rollRandTimes(int min, int max) {
-        Random rand = new Random();
-        int numRolls = rand.nextInt(min, max+1);
-
-        return this.rollNTimes(numRolls);
-    }
-
     @Override
     public String toString() {
         return "Dice{" +
