@@ -1,7 +1,7 @@
 package pk.game;
 
 import pk.game.player.Player;
-import pk.game.score.GameScoreCard;
+import pk.game.score.scorecard.scorecards.GameScoreCard;
 
 public class Game {
 

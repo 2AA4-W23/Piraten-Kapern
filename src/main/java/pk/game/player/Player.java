@@ -2,7 +2,7 @@ package pk.game.player;
 
 import pk.game.count.Counter;
 import pk.game.dice.Dice;
-import pk.game.score.GameScoreCard;
+import pk.game.score.scorecard.scorecards.GameScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
 import pk.game.strategy.player.strategies.RandomStrategy;
 import pk.logging.GameLogger;

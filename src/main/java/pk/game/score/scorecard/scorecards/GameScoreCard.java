@@ -1,4 +1,4 @@
-package pk.game.score;
+package pk.game.score.scorecard.scorecards;
 
 import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.AbstractScoreCard;
