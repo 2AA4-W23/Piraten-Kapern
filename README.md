@@ -47,7 +47,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F03III | Implement Log4j logger  |  P  | 17/01/23 | 18/01/23
 | x   | F03IV | Implement general Scorable so that we can have different scorable types  |  D  | 18/01/23 | 18/01/23
 | x   | F03V | Implement generic scorecard to differentiate between game and turn scorecards  |  D  | 18/01/23 | 18/01/23
-| x   | F03VI | Implement dice holder to keep track of rolls |  P  |  | 
+| x   | F03VI | Implement dice holder to keep track of rolls |  D  | 18/01/2023 | 18/01/23
 | x   | F04 | end of game with three cranes | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
 | x   | F06 | Score points: 3-of-a-kind | B (F04) | | 
