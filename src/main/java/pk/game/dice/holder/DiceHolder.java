@@ -3,6 +3,7 @@ package pk.game.dice.holder;
 import pk.game.dice.Dice;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class DiceHolder {
 
@@ -21,6 +22,14 @@ public class DiceHolder {
      */
     public Dice[] getDice() {
         return this.dice;
+    }
+
+    /**
+     *
+     * @return The {@link Stream} of {@link Dice}s
+     */
+    public Stream<Dice> diceStream() {
+        return Arrays.stream(this.getDice());
     }
 
 }
