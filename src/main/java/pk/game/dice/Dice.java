@@ -20,9 +20,6 @@ public class Dice {
      * @return The {@link Faces} this dice is currently on
      */
     public Faces getFace() {
-        if(Objects.isNull(this.face))
-            throw new IllegalStateException("Dice must be rolled first!");
-
         return this.face;
     }
 
