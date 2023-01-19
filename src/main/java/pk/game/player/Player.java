@@ -1,7 +1,6 @@
 package pk.game.player;
 
 import pk.game.count.Counter;
-import pk.game.dice.Dice;
 import pk.game.dice.holder.DiceHolder;
 import pk.game.score.scorecard.scorecards.GameScoreCard;
 import pk.game.score.scorecard.scorecards.TurnScoreCard;
@@ -21,7 +20,6 @@ public class Player {
     private final Counter wins;
     private final Counter turnsPlayed;
     private final Counter rollsPlayed;
-    private final Counter skullsRolled;
     private boolean isTurnOver;
 
     public Player() {
@@ -33,7 +31,6 @@ public class Player {
         this.wins = new Counter();
         this.turnsPlayed = new Counter();
         this.rollsPlayed = new Counter();
-        this.skullsRolled = new Counter();
         this.isTurnOver = false;
 
         Player.PLAYER_COUNT++;
@@ -65,7 +62,7 @@ public class Player {
 
     /**
      *
-     * @return The {@link Dice} that belongs to this player
+     * @return The {@link DiceHolder} that belongs to this player
      */
     public DiceHolder getDiceHolder() {
         return this.diceHolder;
