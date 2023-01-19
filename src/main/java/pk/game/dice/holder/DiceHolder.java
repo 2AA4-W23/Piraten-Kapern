@@ -43,4 +43,9 @@ public class DiceHolder {
     public Faces[] getFaces() {
         return this.diceStream().map(Dice::getFace).toArray(Faces[]::new);
     }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(this.getDice());
+    }
 }
