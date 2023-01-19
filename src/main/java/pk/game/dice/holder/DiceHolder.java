@@ -1,6 +1,7 @@
 package pk.game.dice.holder;
 
 import pk.game.dice.Dice;
+import pk.game.score.scorable.Faces;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -12,7 +13,9 @@ public class DiceHolder {
 
     public DiceHolder() {
         this.dice = new Dice[Dice.MAX_DICE];
-        Arrays.fill(this.dice, new Dice()); // Fill dice array with 8 dice
+        for(int i=0; i < this.getDice().length; i++) {
+            this.getDice()[i] = new Dice();
+        }
     }
 
 
