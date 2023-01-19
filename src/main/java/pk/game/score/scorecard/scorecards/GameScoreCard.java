@@ -11,10 +11,6 @@ public class GameScoreCard extends AbstractScoreCard {
 
     public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
 
-    public GameScoreCard() {
-        super();
-    }
-
     @Override
     public void addScore(Scorable face, int count) {
         // If there is already a record of this Face just increase by count, otherwise set to count
