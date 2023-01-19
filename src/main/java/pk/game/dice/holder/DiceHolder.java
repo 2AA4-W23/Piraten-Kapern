@@ -35,4 +35,12 @@ public class DiceHolder {
         return Arrays.stream(this.getDice());
     }
 
+
+    /**
+     *
+     * @return The {@link Faces} of the dice
+     */
+    public Faces[] getFaces() {
+        return this.diceStream().map(Dice::getFace).toArray(Faces[]::new);
+    }
 }
