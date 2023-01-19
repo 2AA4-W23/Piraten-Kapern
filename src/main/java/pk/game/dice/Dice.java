@@ -41,6 +41,13 @@ public class Dice {
     }
 
     /**
+     * Reset the {@link Dice} so that no {@link Faces} are selected
+     */
+    public void reset() {
+        this.setFace(null);
+    }
+
+    /**
      *
      * @param n The number of times to roll the dice
      * @return The result of rolling the dice n times
