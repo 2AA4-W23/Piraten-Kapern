@@ -4,6 +4,9 @@ import pk.game.dice.Dice;
 import pk.game.score.scorable.Faces;
 
 import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DiceHolder {
@@ -42,6 +45,18 @@ public class DiceHolder {
      */
     public Faces[] getFaces() {
         return this.diceStream().map(Dice::getFace).toArray(Faces[]::new);
+    }
+
+    /**
+     *
+     * @return Get the {@link Faces} of the {@link Dice}s as a Map where the key is the {@link Faces} and the value
+     * is the number of this {@link Faces} found
+     */
+    public Map<Faces, Integer> getFacesMap() {
+        return Arrays.stream(this.getFaces()).collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.summingInt(e -> 1)
+        ));
     }
 
     @Override
