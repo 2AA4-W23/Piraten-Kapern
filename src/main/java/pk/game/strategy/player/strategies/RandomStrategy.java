@@ -1,5 +1,6 @@
 package pk.game.strategy.player.strategies;
 
+import pk.game.Util;
 import pk.game.dice.Dice;
 import pk.game.score.scorable.Faces;
 import pk.game.player.Player;
@@ -8,9 +9,6 @@ import pk.logging.GameLogger;
 
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Random;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class RandomStrategy implements PlayerStrategy {
 
@@ -28,12 +26,10 @@ public class RandomStrategy implements PlayerStrategy {
 
     @Override
     public void use(Player player) {
-        Random random = new Random();
-
         if(player.getRollsPlayed().getCount() == 0) { // Players first roll?
             player.getDiceHolder().getRollableDice().forEach(Dice::roll);
         } else {
-            int diceToRoll = random.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
+            int diceToRoll = Util.RANDOM.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
             player.getDiceHolder().getRollableDice().limit(diceToRoll).forEach(Dice::roll);
         }
 
@@ -56,7 +52,7 @@ public class RandomStrategy implements PlayerStrategy {
 
         // Is the players turn over? Either by choice or 3 skulls rolled
         boolean threeSkullsRolled = player.getDiceHolder().getSkullCount() >= 3;
-        boolean playerTurnChoice = (random.nextBoolean());
+        boolean playerTurnChoice = (Util.RANDOM.nextBoolean());
 
         if(threeSkullsRolled) {
             // 3 skulls have been rolled so players turn is over

@@ -1,8 +1,6 @@
 package pk.game.dice;
+import pk.game.Util;
 import pk.game.score.scorable.Faces;
-
-import java.util.Objects;
-import java.util.Random;
 
 public class Dice {
 
@@ -36,8 +34,7 @@ public class Dice {
      */
     public void roll() {
         int howManyFaces = Faces.values().length;
-        Random bag = new Random();
-        this.setFace(Faces.values()[bag.nextInt(howManyFaces)]);
+        this.setFace(Faces.values()[Util.RANDOM.nextInt(howManyFaces)]);
     }
 
     /**
