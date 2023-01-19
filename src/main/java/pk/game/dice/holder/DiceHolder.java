@@ -32,6 +32,14 @@ public class DiceHolder {
 
     /**
      *
+     * @return The {@link Dice} that can be rolled
+     */
+    public Stream<Dice> getRollableDice() {
+        return this.diceStream().filter(d -> !Faces.SKULL.equals(d.getFace()));
+    }
+
+    /**
+     *
      * @return The {@link Stream} of {@link Dice}s
      */
     public Stream<Dice> diceStream() {
