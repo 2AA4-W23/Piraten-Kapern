@@ -51,8 +51,8 @@ public class DiceHolder {
      *
      * @return The {@link Faces} of the dice
      */
-    public Faces[] getFaces() {
-        return this.diceStream().map(Dice::getFace).toArray(Faces[]::new);
+    public Stream<Faces> getFaces() {
+        return this.diceStream().map(Dice::getFace);
     }
 
     /**
@@ -61,7 +61,7 @@ public class DiceHolder {
      * is the number of this {@link Faces} found
      */
     public Map<Faces, Integer> getFacesMap() {
-        return Arrays.stream(this.getFaces()).collect(Collectors.groupingBy(
+        return this.getFaces().collect(Collectors.groupingBy(
                 Function.identity(),
                 Collectors.summingInt(e -> 1)
         ));
