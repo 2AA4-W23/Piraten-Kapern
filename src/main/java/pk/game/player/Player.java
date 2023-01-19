@@ -3,6 +3,7 @@ package pk.game.player;
 import pk.game.count.Counter;
 import pk.game.dice.Dice;
 import pk.game.score.scorecard.scorecards.GameScoreCard;
+import pk.game.score.scorecard.scorecards.TurnScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
 import pk.game.strategy.player.strategies.RandomStrategy;
 import pk.logging.GameLogger;
@@ -14,7 +15,7 @@ public class Player {
     private final int id;
     private final PlayerStrategy strategy;
     private final GameScoreCard scoreCard;
-    private final GameScoreCard turnScoreCard;
+    private final TurnScoreCard turnScoreCard;
     private final Dice dice;
     private final Counter wins;
     private final Counter turnsPlayed;
@@ -26,7 +27,7 @@ public class Player {
         this.id = Player.PLAYER_COUNT;
         this.strategy = RandomStrategy.getInstance();
         this.scoreCard = new GameScoreCard();
-        this.turnScoreCard = new GameScoreCard();
+        this.turnScoreCard = new TurnScoreCard();
         this.dice = new Dice();
         this.wins = new Counter();
         this.turnsPlayed = new Counter();
@@ -57,7 +58,7 @@ public class Player {
      *
      * @return The {@link GameScoreCard} used to keep track of the score during the current turn
      */
-    public GameScoreCard getTurnScoreCard() {
+    public TurnScoreCard getTurnScoreCard() {
         return this.turnScoreCard;
     }
 
