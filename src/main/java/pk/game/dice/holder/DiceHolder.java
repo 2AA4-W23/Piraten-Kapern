@@ -14,4 +14,13 @@ public class DiceHolder {
         Arrays.fill(this.dice, new Dice()); // Fill dice array with 8 dice
     }
 
+
+    /**
+     *
+     * @return The array of all {@link Dice}s
+     */
+    public Dice[] getDice() {
+        return this.dice;
+    }
+
 }
