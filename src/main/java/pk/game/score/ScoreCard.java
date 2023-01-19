@@ -1,47 +1,29 @@
 package pk.game.score;
 
-import pk.game.score.scorable.Faces;
+import pk.game.score.scorable.Scorable;
+import pk.game.score.scorecard.AbstractScoreCard;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class ScoreCard {
+public class ScoreCard extends AbstractScoreCard {
 
     public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
 
-    // HashMap to keep count of the
-    private final HashMap<Faces, Integer> scoreCount;
-
     public ScoreCard() {
-        this.scoreCount = new HashMap<>();
+        super();
     }
 
-    /**
-     *
-     * @return The {@link HashMap<>} used to keep track of the score
-     */
-    public HashMap<Faces, Integer> getScoreCount() {
-        return this.scoreCount;
-    }
-
-    /**
-     *
-     * @param face The {@link Faces} to add
-     * @param count The number of this {@link Faces} to add to the score
-     */
-    public void addScore(Faces face, int count) {
+    @Override
+    public void addScore(Scorable face, int count) {
         // If there is already a record of this Face just increase by count, otherwise set to count
-        this.getScoreCount().compute(face, (k, v) -> (Objects.isNull(v)) ? count : v+count);
+        super.getScoreCount().compute(face, (k, v) -> (Objects.isNull(v)) ? count : v+count);
     }
 
-    /**
-     *
-     * @return The total score recorded by this scorecard
-     */
+    @Override
     public int totalScore() {
-        Set<Map.Entry<Faces, Integer>> entrySet = this.getScoreCount().entrySet();
+        Set<Map.Entry<Scorable, Integer>> entrySet = super.getScoreCount().entrySet();
 
         // Sum up the score
         return entrySet.stream().mapToInt(e -> e.getKey().getScore()*e.getValue()).sum();
@@ -49,23 +31,19 @@ public class ScoreCard {
 
     /**
      *
-     * @param scoreCard The {@link ScoreCard} to merge into this one
+     * @param scoreCard The {@link AbstractScoreCard} to merge into this one
      */
-    public void merge(ScoreCard scoreCard) {
+    public void merge(AbstractScoreCard scoreCard) {
         scoreCard.getScoreCount().forEach((k, v) -> {
-            this.getScoreCount().merge(k, v, Integer::sum);
+            super.getScoreCount().merge(k, v, Integer::sum);
         });
     }
 
     /**
      * Clear the {@link ScoreCard}
      */
-    public void clear() {
-        this.getScoreCount().clear();
-    }
-
     @Override
-    public String toString() {
-        return this.getScoreCount().toString();
+    public void clear() {
+        super.getScoreCount().clear();
     }
 }
