@@ -71,5 +71,11 @@ public class Dice {
 
         return this.rollNTimes(numRolls);
     }
-    
+
+    @Override
+    public String toString() {
+        return "Dice{" +
+                "face=" + this.getFace() +
+                '}';
+    }
 }
