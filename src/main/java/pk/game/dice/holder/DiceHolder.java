@@ -75,6 +75,13 @@ public class DiceHolder {
         return this.getFacesMap().getOrDefault(Faces.SKULL, 0);
     }
 
+    /**
+     * Reset all the {@link Dice}
+     */
+    public void reset() {
+        this.diceStream().forEach(Dice::reset);
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(this.getDice());
