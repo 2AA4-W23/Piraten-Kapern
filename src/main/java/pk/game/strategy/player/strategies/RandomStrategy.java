@@ -28,14 +28,16 @@ public class RandomStrategy implements PlayerStrategy {
 
     @Override
     public void use(Player player) {
-        Faces[] rollResults;
+        Random random = new Random();
 
         if(player.getRollsPlayed().getCount() == 0) { // Players first roll?
-            rollResults = player.getDice().rollNTimes(Dice.MAX_DICE);
+            player.getDiceHolder().getRollableDice().forEach(Dice::roll);
         } else {
-            rollResults = player.getDice()
-                    .rollRandTimes(Dice.MIN_DICE, Dice.MAX_DICE-player.getSkullsRolled().getCount());
+            int diceToRoll = random.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
+            player.getDiceHolder().getRollableDice().limit(diceToRoll).forEach(Dice::roll);
         }
+
+        Faces[] rollResults = player.getDiceHolder().getFaces().toArray(Faces[]::new);
 
         // Increment the number of rolls played by user
         player.getRollsPlayed().add(1);
@@ -47,27 +49,21 @@ public class RandomStrategy implements PlayerStrategy {
                 Arrays.toString(rollResults)
         ));
 
-        Map<Faces, Integer> rollMap = Arrays.stream(rollResults).collect(Collectors.groupingBy(
-                Function.identity(),
-                Collectors.summingInt(e -> 1)
-        ));
+        Map<Faces, Integer> rollMap = player.getDiceHolder().getFacesMap();
 
         // Add scores to this turns scorecard
         rollMap.forEach((k, v) -> player.getTurnScoreCard().addScore(k, v));
 
-        // Count the number of skulls rolled
-        player.getSkullsRolled().add(rollMap.getOrDefault(Faces.SKULL, 0));
-
         // Is the players turn over? Either by choice or 3 skulls rolled
-        boolean threeSkullsRolled = player.getSkullsRolled().getCount() >= 3;
-        boolean playerTurnChoice = (new Random().nextBoolean());
+        boolean threeSkullsRolled = player.getDiceHolder().getSkullCount() >= 3;
+        boolean playerTurnChoice = (random.nextBoolean());
 
         if(threeSkullsRolled) {
             // 3 skulls have been rolled so players turn is over
             GameLogger.debugLog(String.format(
                     "Player #%d turn ended because %d skulls have been rolled",
                     player.getId(),
-                    player.getSkullsRolled().getCount()
+                    player.getDiceHolder().getSkullCount()
             ));
         } else if(playerTurnChoice) {
             // Player decided to stop rolling

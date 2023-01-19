@@ -2,6 +2,7 @@ package pk.game.player;
 
 import pk.game.count.Counter;
 import pk.game.dice.Dice;
+import pk.game.dice.holder.DiceHolder;
 import pk.game.score.scorecard.scorecards.GameScoreCard;
 import pk.game.score.scorecard.scorecards.TurnScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
@@ -16,7 +17,7 @@ public class Player {
     private final PlayerStrategy strategy;
     private final GameScoreCard scoreCard;
     private final TurnScoreCard turnScoreCard;
-    private final Dice dice;
+    private final DiceHolder diceHolder;
     private final Counter wins;
     private final Counter turnsPlayed;
     private final Counter rollsPlayed;
@@ -28,7 +29,7 @@ public class Player {
         this.strategy = RandomStrategy.getInstance();
         this.scoreCard = new GameScoreCard();
         this.turnScoreCard = new TurnScoreCard();
-        this.dice = new Dice();
+        this.diceHolder = new DiceHolder();
         this.wins = new Counter();
         this.turnsPlayed = new Counter();
         this.rollsPlayed = new Counter();
@@ -66,8 +67,8 @@ public class Player {
      *
      * @return The {@link Dice} that belongs to this player
      */
-    public Dice getDice() {
-        return this.dice;
+    public DiceHolder getDiceHolder() {
+        return this.diceHolder;
     }
 
     /**
@@ -96,14 +97,6 @@ public class Player {
 
     /**
      *
-     * @return The {@link Counter} used to keep track of the number of skulls rolled during current turn
-     */
-    public Counter getSkullsRolled() {
-        return this.skullsRolled;
-    }
-
-    /**
-     *
      * @return Is the players turn over?
      */
     public boolean isTurnOver() {
@@ -123,7 +116,7 @@ public class Player {
      */
     private void resetTurn() {
         this.getTurnScoreCard().clear();
-        this.getSkullsRolled().reset();
+        this.getDiceHolder().reset();
         this.getRollsPlayed().reset();
         this.setTurnOver(false);
     }
@@ -151,6 +144,9 @@ public class Player {
             this.strategy.use(this);
         } while (!this.isTurnOver()); // Is the players turn not yet over?
 
+        // Increment number of turns played
+        this.getTurnsPlayed().add(1);
+
         // Log what has been collected during this turn
         GameLogger.debugLog(String.format(
                 "Player #%d collected during turn %d: %s",
@@ -159,12 +155,11 @@ public class Player {
                 this.getTurnScoreCard()
         ));
 
-        if(this.getSkullsRolled().getCount() < 3) { // Did the player not roll 3 or more skulls?
+        if(this.getDiceHolder().getSkullCount() < 3) { // Did the player not roll 3 or more skulls?
             // Count score collected in this turn
             this.getScoreCard().merge(this.getTurnScoreCard());
         }
 
-        this.getTurnsPlayed().add(1);
         this.resetTurn();
 
         // Log player status after turn
@@ -181,14 +176,14 @@ public class Player {
     @Override
     public String toString() {
         return "Player #" + this.getId() + " {" +
-                "scoreCard=" + this.getScoreCard() +
+                "diceHolder=" + this.getDiceHolder() +
+                ", scoreCard=" + this.getScoreCard() +
                 ", Total Score= " + this.getScoreCard().totalScore() +
                 ", turnScoreCard=" + this.getTurnScoreCard() +
                 ", Turn Total Score= " + this.getTurnScoreCard().totalScore() +
                 ", wins=" + this.getWins().getCount() +
                 ", turnsPlayed=" + this.getTurnsPlayed().getCount() +
                 ", rollsPlayed=" + this.getRollsPlayed().getCount() +
-                ", skullsRolled=" + this.getSkullsRolled().getCount() +
                 ", isTurnOver=" + this.isTurnOver() +
                 '}';
     }
