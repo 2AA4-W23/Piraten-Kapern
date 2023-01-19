@@ -1,7 +1,7 @@
 package pk.game;
 
 import pk.game.player.Player;
-import pk.game.score.ScoreCard;
+import pk.game.score.GameScoreCard;
 
 public class Game {
 
@@ -52,9 +52,9 @@ public class Game {
             int p2Score = this.p2.getScoreCard().totalScore();
 
             // Find who won
-            if(p1Score >= ScoreCard.WIN_SCORE || p2Score >= ScoreCard.WIN_SCORE) {
+            if(p1Score >= GameScoreCard.WIN_SCORE || p2Score >= GameScoreCard.WIN_SCORE) {
                 // Find player who gets extra turn
-                if(p1Score >= ScoreCard.WIN_SCORE) {
+                if(p1Score >= GameScoreCard.WIN_SCORE) {
                     this.getPlayer2().play();
                 } else {
                     this.getPlayer1().play();

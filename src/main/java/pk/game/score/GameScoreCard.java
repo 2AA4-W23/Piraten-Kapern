@@ -7,11 +7,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class ScoreCard extends AbstractScoreCard {
+public class GameScoreCard extends AbstractScoreCard {
 
     public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
 
-    public ScoreCard() {
+    public GameScoreCard() {
         super();
     }
 
@@ -40,7 +40,7 @@ public class ScoreCard extends AbstractScoreCard {
     }
 
     /**
-     * Clear the {@link ScoreCard}
+     * Clear the {@link GameScoreCard}
      */
     @Override
     public void clear() {
