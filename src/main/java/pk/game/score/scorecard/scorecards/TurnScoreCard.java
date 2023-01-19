@@ -13,6 +13,15 @@ public class TurnScoreCard extends AbstractScoreCard {
         super.getScoreCount().compute(face, (k, v) -> count);
     }
 
+    /**
+     *
+     * @param map The map of the scorables to add and their counts
+     */
+    public void addAll(Map<? extends Scorable, Integer> map) {
+        this.clear(); // Clear old scores from last roll
+        super.getScoreCount().putAll(map); // Add new scores
+    }
+
     @Override
     public void clear() {
         super.getScoreCount().clear();
