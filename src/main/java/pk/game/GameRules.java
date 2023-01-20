@@ -26,4 +26,13 @@ public class GameRules {
         player.getDiceHolder().diceStream().forEach(Dice::roll);
     }
 
+    /**
+     *
+     * @param player The {@link Player} to check if they reached the winning score
+     * @return Whether the {@link Player} has reached the winning score or not
+     */
+    public static boolean didPlayerReachWinScore(Player player) {
+        return player.getScoreCard().totalScore() >= GameRules.WIN_SCORE;
+    }
+
 }

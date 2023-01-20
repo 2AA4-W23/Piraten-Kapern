@@ -1,7 +1,6 @@
 package pk.game;
 
 import pk.game.player.Player;
-import pk.game.score.scorecard.scorecards.GameScoreCard;
 
 public class Game {
 
@@ -45,14 +44,14 @@ public class Game {
         do {
             // Players play their turns
             this.getPlayer1().play();
-            if(this.getPlayer1().getScoreCard().totalScore() >= GameRules.WIN_SCORE) { // Player 1 reached 6k points?
+            if(GameRules.didPlayerReachWinScore(this.getPlayer1())) { // Player 1 reached 6k points?
                 // Give player 2 an extra turn
                 this.getPlayer2().play();
                 break;
             }
 
             this.getPlayer2().play();
-            if(this.getPlayer2().getScoreCard().totalScore() >= GameRules.WIN_SCORE) { // Player 2 reached 6k points?
+            if(GameRules.didPlayerReachWinScore(this.getPlayer2())) { // Player 2 reached 6k points?
                 // Give player 1 an extra turn
                 this.getPlayer1().play();
                 break;
