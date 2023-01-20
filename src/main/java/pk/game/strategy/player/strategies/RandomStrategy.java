@@ -22,7 +22,7 @@ public class RandomStrategy implements PlayerStrategy {
     @Override
     public void otherRolls(Player player) {
         int numDiceRoll = Util.RANDOM.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
-        player.getDiceHolder().getRollableDice().limit(numDiceRoll).forEach(Dice::roll);
+        player.getDiceHolder().getRollableDice().unordered().limit(numDiceRoll).forEach(Dice::roll);
     }
 
     @Override
