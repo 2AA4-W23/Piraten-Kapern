@@ -9,8 +9,10 @@
     * `mvn clean`
   * To compile the project:
     * `mvn compile`
-  * To run the project in development mode:
-    * `mvn -q exec:java` (here, `-q` tells maven to be _quiet_)
+  * To run the project in development mode (without tracing mode):
+    * `mvn -q exec:java`
+  * To run the project in development mode (with tracing mode):
+    * `mvn -q exec:java -D TRACE`
   * To package the project as a turn-key artefact:
     * `mvn package`
   * To run the packaged delivery:
