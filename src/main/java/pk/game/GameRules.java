@@ -5,6 +5,9 @@ import pk.game.player.Player;
 
 public class GameRules {
 
+    public static final int MIN_DICE = 2; // Minimum number of dice a player can roll
+    public static final int MAX_DICE = 8; // Maximum number of dice a player can roll
+
     /**
      *
      * @param player The {@link Player} to check skulls count

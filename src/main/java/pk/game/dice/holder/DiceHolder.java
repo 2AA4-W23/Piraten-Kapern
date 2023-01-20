@@ -1,5 +1,6 @@
 package pk.game.dice.holder;
 
+import pk.game.GameRules;
 import pk.game.dice.Dice;
 import pk.game.score.scorable.Faces;
 
@@ -15,7 +16,7 @@ public class DiceHolder {
     private final Dice[] dice;
 
     public DiceHolder() {
-        this.dice = new Dice[Dice.MAX_DICE];
+        this.dice = new Dice[GameRules.MAX_DICE];
         for(int i=0; i < this.getDice().length; i++) {
             this.getDice()[i] = new Dice();
         }

@@ -1,5 +1,6 @@
 package pk.game.strategy.player.strategies;
 
+import pk.game.GameRules;
 import pk.game.Util;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
@@ -21,7 +22,7 @@ public class RandomStrategy implements PlayerStrategy {
 
     @Override
     public void otherRolls(Player player) {
-        int numDiceRoll = Util.RANDOM.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
+        int numDiceRoll = Util.RANDOM.nextInt(GameRules.MIN_DICE, GameRules.MAX_DICE-player.getDiceHolder().getSkullCount());
         player.getDiceHolder().getRollableDice().unordered().limit(numDiceRoll).forEach(Dice::roll);
     }
 

@@ -4,9 +4,6 @@ import pk.game.score.scorable.Faces;
 
 public class Dice {
 
-    public static final int MIN_DICE = 2; // Minimum number of dice a player can roll
-    public static final int MAX_DICE = 8; // Maximum number of dice a player can roll
-
     private Faces face;
 
     public Dice() {
