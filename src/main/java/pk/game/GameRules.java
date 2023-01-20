@@ -7,6 +7,7 @@ public class GameRules {
 
     public static final int MIN_DICE = 2; // Minimum number of dice a player can roll
     public static final int MAX_DICE = 8; // Maximum number of dice a player can roll
+    public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
 
     /**
      *

@@ -45,14 +45,14 @@ public class Game {
         do {
             // Players play their turns
             this.getPlayer1().play();
-            if(this.getPlayer1().getScoreCard().totalScore() >= GameScoreCard.WIN_SCORE) { // Player 1 reached 6k points?
+            if(this.getPlayer1().getScoreCard().totalScore() >= GameRules.WIN_SCORE) { // Player 1 reached 6k points?
                 // Give player 2 an extra turn
                 this.getPlayer2().play();
                 break;
             }
 
             this.getPlayer2().play();
-            if(this.getPlayer2().getScoreCard().totalScore() >= GameScoreCard.WIN_SCORE) { // Player 2 reached 6k points?
+            if(this.getPlayer2().getScoreCard().totalScore() >= GameRules.WIN_SCORE) { // Player 2 reached 6k points?
                 // Give player 1 an extra turn
                 this.getPlayer1().play();
                 break;
