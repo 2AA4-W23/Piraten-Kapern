@@ -2,13 +2,8 @@ package pk.game.strategy.player.strategies;
 
 import pk.game.Util;
 import pk.game.dice.Dice;
-import pk.game.score.scorable.Faces;
 import pk.game.player.Player;
 import pk.game.strategy.player.PlayerStrategy;
-import pk.logging.GameLogger;
-
-import java.util.Arrays;
-import java.util.Map;
 
 public class RandomStrategy implements PlayerStrategy {
 
