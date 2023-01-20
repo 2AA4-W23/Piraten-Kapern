@@ -1,5 +1,6 @@
 package pk.game.strategy.player;
 
+import pk.game.Util;
 import pk.game.player.Player;
 import pk.game.score.scorable.Faces;
 import pk.logging.GameLogger;
@@ -18,6 +19,7 @@ public interface PlayerStrategy {
     default void use(Player player) {
         this.roll(player);
         this.score(player);
+        this.endTurn(player);
     }
 
     /**
@@ -67,5 +69,39 @@ public interface PlayerStrategy {
         // Add scores to this turns scorecard
         player.getTurnScoreCard().addAll(rollMap);
     }
+
+    /**
+     * Logic used to determine whether the {@link Player} turn is over
+     * @param player The {@link Player} using this strategy
+     */
+    default void endTurn(Player player) {
+        // Is the players turn over? Either by choice or 3 skulls rolled
+        boolean threeSkullsRolled = player.getDiceHolder().getSkullCount() >= 3;
+        boolean playerTurnChoice = this.shouldEndTurn(player);
+
+        if(threeSkullsRolled) {
+            // 3 skulls have been rolled so players turn is over
+            GameLogger.debugLog(String.format(
+                    "Player #%d turn ended because %d skulls have been rolled",
+                    player.getId(),
+                    player.getDiceHolder().getSkullCount()
+            ));
+        } else if(playerTurnChoice) {
+            // Player decided to stop rolling
+            GameLogger.debugLog(String.format(
+                    "Player #%d chose to end their turn",
+                    player.getId()
+            ));
+        }
+
+        player.setTurnOver(threeSkullsRolled || playerTurnChoice);
+    }
+
+    /**
+     *
+     * @param player The {@link Player} using this strategy
+     * @return A boolean representing whether the player should end their turn or not
+     */
+    boolean shouldEndTurn(Player player);
 
 }

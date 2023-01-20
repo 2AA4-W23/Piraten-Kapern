@@ -25,32 +25,6 @@ public class RandomStrategy implements PlayerStrategy {
     private RandomStrategy() {}
 
     @Override
-    public void use(Player player) {
-        PlayerStrategy.super.use(player);
-
-        // Is the players turn over? Either by choice or 3 skulls rolled
-        boolean threeSkullsRolled = player.getDiceHolder().getSkullCount() >= 3;
-        boolean playerTurnChoice = (Util.RANDOM.nextBoolean());
-
-        if(threeSkullsRolled) {
-            // 3 skulls have been rolled so players turn is over
-            GameLogger.debugLog(String.format(
-                    "Player #%d turn ended because %d skulls have been rolled",
-                    player.getId(),
-                    player.getDiceHolder().getSkullCount()
-            ));
-        } else if(playerTurnChoice) {
-            // Player decided to stop rolling
-            GameLogger.debugLog(String.format(
-                    "Player #%d chose to end their turn",
-                    player.getId()
-            ));
-        }
-
-        player.setTurnOver(threeSkullsRolled || playerTurnChoice);
-    }
-
-    @Override
     public void firstRoll(Player player) {
         player.getDiceHolder().getRollableDice().forEach(Dice::roll);
     }
@@ -59,5 +33,10 @@ public class RandomStrategy implements PlayerStrategy {
     public void otherRolls(Player player) {
         int numDiceRoll = Util.RANDOM.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
         player.getDiceHolder().getRollableDice().limit(numDiceRoll).forEach(Dice::roll);
+    }
+
+    @Override
+    public boolean shouldEndTurn(Player player) {
+        return Util.RANDOM.nextBoolean();
     }
 }
