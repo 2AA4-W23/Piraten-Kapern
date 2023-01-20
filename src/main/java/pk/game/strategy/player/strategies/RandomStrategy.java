@@ -26,24 +26,7 @@ public class RandomStrategy implements PlayerStrategy {
 
     @Override
     public void use(Player player) {
-        if(player.getRollsPlayed().getCount() == 0) { // Players first roll?
-            player.getDiceHolder().getRollableDice().forEach(Dice::roll);
-        } else {
-            int diceToRoll = Util.RANDOM.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
-            player.getDiceHolder().getRollableDice().limit(diceToRoll).forEach(Dice::roll);
-        }
-
-        Faces[] rollResults = player.getDiceHolder().getFaces().toArray(Faces[]::new);
-
-        // Increment the number of rolls played by user
-        player.getRollsPlayed().add(1);
-
-        // Log each roll the user plays in their turn
-        GameLogger.debugLog(String.format(
-                "Roll #%d: %s",
-                player.getRollsPlayed().getCount(),
-                Arrays.toString(rollResults)
-        ));
+        PlayerStrategy.super.use(player);
 
         Map<Faces, Integer> rollMap = player.getDiceHolder().getFacesMap();
 
@@ -70,5 +53,16 @@ public class RandomStrategy implements PlayerStrategy {
         }
 
         player.setTurnOver(threeSkullsRolled || playerTurnChoice);
+    }
+
+    @Override
+    public void firstRoll(Player player) {
+        player.getDiceHolder().getRollableDice().forEach(Dice::roll);
+    }
+
+    @Override
+    public void otherRolls(Player player) {
+        int numDiceRoll = Util.RANDOM.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
+        player.getDiceHolder().getRollableDice().limit(numDiceRoll).forEach(Dice::roll);
     }
 }
