@@ -53,7 +53,13 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F03VII | Fix win checking logic |  D  | 19/01/23 | 19/01/23
 | -   | F03VIII | PlayerStrategy split use method into several general methods that each PlayerStrategy has |  D  | 19/01/23 | 19/01/23
 | -   | F03IX | Game rules class implementation | D | 19/01/23 | 19/01/23
-| -   | F04 | end of game with three cranes | P | |
+| -   | F04 | Group scoring | P | |
+| -   | F04I | Implement groups enum to know the score of each group | P | |
+| -   | F04II | Implement turn scorecard to compute combinations  | P | |
+| -   | F05 | Bonus chest | P | |
+| -   | F05I | Implement Bonus Chest Enum | P | |
+| -   | F05II | Implement turn scorecard to detect bonus chest | P | |
+| -   | F06 | Implement combination strategy | P | |
 | -   | F05 | Player keeping random dice at their turn | B (F02) | | 
 | -   | F06 | Score points: 3-of-a-kind | B (F04) | | 
 | ... | ... | ... |
