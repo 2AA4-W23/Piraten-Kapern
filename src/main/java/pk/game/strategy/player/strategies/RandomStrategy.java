@@ -20,11 +20,6 @@ public class RandomStrategy implements PlayerStrategy {
     private RandomStrategy() {}
 
     @Override
-    public void firstRoll(Player player) {
-        player.getDiceHolder().getRollableDice().forEach(Dice::roll);
-    }
-
-    @Override
     public void otherRolls(Player player) {
         int numDiceRoll = Util.RANDOM.nextInt(Dice.MIN_DICE, Dice.MAX_DICE-player.getDiceHolder().getSkullCount());
         player.getDiceHolder().getRollableDice().limit(numDiceRoll).forEach(Dice::roll);

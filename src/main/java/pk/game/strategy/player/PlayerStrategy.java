@@ -28,7 +28,7 @@ public interface PlayerStrategy {
      */
     default void roll(Player player) {
         if(player.getRollsPlayed().getCount() == 0) { // Players first roll?
-            this.firstRoll(player);
+            GameRules.firstRoll(player);
         } else {
             this.otherRolls(player);
         }
@@ -44,13 +44,6 @@ public interface PlayerStrategy {
                 Arrays.toString(rollResults)
         ));
     }
-
-    /**
-     *
-     * Handles the logic for the first roll done by the player
-     * @param player The {@link Player} using this strategy
-     */
-    void firstRoll(Player player);
 
     /**
      *

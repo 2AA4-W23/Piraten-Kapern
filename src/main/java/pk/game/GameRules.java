@@ -1,5 +1,6 @@
 package pk.game;
 
+import pk.game.dice.Dice;
 import pk.game.player.Player;
 
 public class GameRules {
@@ -11,6 +12,14 @@ public class GameRules {
      */
     public static boolean playerSkullsEndTurn(Player player) {
         return player.getDiceHolder().getSkullCount() >= 3;
+    }
+
+    /**
+     * Rolls a {@link Player} dice for their first roll in a turn
+     * @param player The {@link Player} performing their first roll
+     */
+    public static void firstRoll(Player player) {
+        player.getDiceHolder().diceStream().forEach(Dice::roll);
     }
 
 }
