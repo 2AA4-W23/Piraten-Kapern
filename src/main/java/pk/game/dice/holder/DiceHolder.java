@@ -73,7 +73,7 @@ public class DiceHolder {
      * @return The number of {@link Dice} that have rolled {@link Faces#SKULL}
      */
     public int getSkullCount() {
-        return this.getFacesMap().getOrDefault(Faces.SKULL, 0);
+        return (int) this.getFaces().filter(Faces.SKULL::equals).count();
     }
 
     /**
