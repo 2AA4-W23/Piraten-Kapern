@@ -1,5 +1,6 @@
 package pk.game.strategy.player;
 
+import pk.game.GameRules;
 import pk.game.player.Player;
 import pk.game.score.scorable.Faces;
 import pk.logging.GameLogger;
@@ -75,7 +76,7 @@ public interface PlayerStrategy {
      */
     default void endTurn(Player player) {
         // Is the players turn over? Either by choice or 3 skulls rolled
-        boolean threeSkullsRolled = player.getDiceHolder().getSkullCount() >= 3;
+        boolean threeSkullsRolled = GameRules.playerSkullsEndTurn(player);
         boolean playerTurnChoice = this.shouldEndTurn(player);
 
         if(threeSkullsRolled) {

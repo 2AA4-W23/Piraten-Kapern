@@ -1,5 +1,6 @@
 package pk.game.player;
 
+import pk.game.GameRules;
 import pk.game.count.Counter;
 import pk.game.dice.holder.DiceHolder;
 import pk.game.score.scorecard.scorecards.GameScoreCard;
@@ -152,7 +153,7 @@ public class Player {
                 this.getTurnScoreCard()
         ));
 
-        if(this.getDiceHolder().getSkullCount() < 3) { // Did the player not roll 3 or more skulls?
+        if(!GameRules.playerSkullsEndTurn(this)) { // Did the player not roll 3 or more skulls?
             // Count score collected in this turn
             this.getScoreCard().merge(this.getTurnScoreCard());
         }
