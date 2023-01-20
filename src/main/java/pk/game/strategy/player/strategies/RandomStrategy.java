@@ -28,11 +28,6 @@ public class RandomStrategy implements PlayerStrategy {
     public void use(Player player) {
         PlayerStrategy.super.use(player);
 
-        Map<Faces, Integer> rollMap = player.getDiceHolder().getFacesMap();
-
-        // Add scores to this turns scorecard
-        player.getTurnScoreCard().addAll(rollMap);
-
         // Is the players turn over? Either by choice or 3 skulls rolled
         boolean threeSkullsRolled = player.getDiceHolder().getSkullCount() >= 3;
         boolean playerTurnChoice = (Util.RANDOM.nextBoolean());

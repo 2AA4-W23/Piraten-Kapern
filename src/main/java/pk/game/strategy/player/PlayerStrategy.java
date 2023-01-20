@@ -5,6 +5,7 @@ import pk.game.score.scorable.Faces;
 import pk.logging.GameLogger;
 
 import java.util.Arrays;
+import java.util.Map;
 
 /**
  * A strategy used by a player to play their turn
@@ -16,6 +17,7 @@ public interface PlayerStrategy {
      */
     default void use(Player player) {
         this.roll(player);
+        this.score(player);
     }
 
     /**
@@ -54,5 +56,16 @@ public interface PlayerStrategy {
      * @param player The {@link Player} using this strategy
      */
     void otherRolls(Player player);
+
+    /**
+     * Add the score to the players scorecard
+     * @param player The {@link Player} using this strategy
+     */
+    default void score(Player player) {
+        Map<Faces, Integer> rollMap = player.getDiceHolder().getFacesMap();
+
+        // Add scores to this turns scorecard
+        player.getTurnScoreCard().addAll(rollMap);
+    }
 
 }
