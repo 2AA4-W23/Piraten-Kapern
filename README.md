@@ -43,7 +43,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F02VI | Implement player strategy | D | 16/01/23 | 16/01/23
 | x   | F02VI | Implement game class  | D | 16/01/23 | 16/01/23
 | x   | F02VIII | Simulate the game 42 times | D | 16/01/23 | 16/01/23
-| -   | F03 | Fix code and implement logging.  |  P  |   |
+| -   | F03 | Fix code and implement logging.  |  D  |  16/01/23  | 19/01/23
 | -   | F03I | Implement simulation class to handle all simulation tasks.  |  D  | 17/01/23  | 17/01/23
 | -   | F03II | Update documentation  |  D  |  17/01/23  | 17/01/23
 | -   | F03III | Implement Log4j logger  |  P  | 17/01/23 | 18/01/23
