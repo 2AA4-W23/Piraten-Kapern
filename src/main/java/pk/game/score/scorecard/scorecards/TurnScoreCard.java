@@ -1,16 +1,19 @@
 package pk.game.score.scorecard.scorecards;
 
+import pk.game.GameRules;
+import pk.game.score.scorable.Groups;
 import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.AbstractScoreCard;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 public class TurnScoreCard extends AbstractScoreCard {
     @Override
     public void addScore(Scorable face, int count) {
         // If there is already a record of this Face just overwrite it
-        super.getScoreCount().compute(face, (k, v) -> count);
+        super.getScoreCount().put(face, count);
     }
 
     /**
@@ -19,6 +22,14 @@ public class TurnScoreCard extends AbstractScoreCard {
      */
     public void addAll(Map<? extends Scorable, Integer> map) {
         this.clear(); // Clear old scores from last roll
+
+        // Look for combinations
+        map.forEach((k, v) -> {
+            Groups group = GameRules.groupMap.get(v);
+            if(Objects.nonNull(group)) {
+                super.getScoreCount().put(group, 1);
+            }
+        });
         super.getScoreCount().putAll(map); // Add new scores
     }
 
