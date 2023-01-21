@@ -2,12 +2,23 @@ package pk.game;
 
 import pk.game.dice.Dice;
 import pk.game.player.Player;
+import pk.game.score.scorable.Groups;
+
+import java.util.Map;
 
 public class GameRules {
 
     public static final int MIN_DICE = 2; // Minimum number of dice a player can roll
     public static final int MAX_DICE = 8; // Maximum number of dice a player can roll
     public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
+    public static final Map<Integer, Groups> groupMap = Map.of( // All the groups to score
+            Groups.GROUP_OF_3.getGroupSize(), Groups.GROUP_OF_3,
+            Groups.GROUP_OF_4.getGroupSize(), Groups.GROUP_OF_4,
+            Groups.GROUP_OF_5.getGroupSize(), Groups.GROUP_OF_5,
+            Groups.GROUP_OF_6.getGroupSize(), Groups.GROUP_OF_6,
+            Groups.GROUP_OF_7.getGroupSize(), Groups.GROUP_OF_7,
+            Groups.GROUP_OF_8.getGroupSize(), Groups.GROUP_OF_8
+    );
 
     /**
      *
