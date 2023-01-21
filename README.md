@@ -56,10 +56,12 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F04 | Group scoring | D | 20/01/23 | 20/01/23
 | -   | F04I | Implement groups enum to know the score of each group | D | 20/01/23 | 20/01/23
 | -   | F04II | Implement turn scorecard to compute combinations  | D | 20/01/23 | 20/01/23
-| -   | F05 | Bonus chest | P | 20/01/23 |
+| -   | F05 | Bonus chest | D | 20/01/23 | 21/01/23
 | -   | F05I | Implement Bonus Chest Enum | D | 20/01/23 | 20/01/23
-| -   | F05II | Implement turn scorecard to detect bonus chest | D | 21/01/23 | 
+| -   | F05II | Implement turn scorecard to detect bonus chest | D | 21/01/23 | 21/01/23
 | -   | F06 | Implement combination strategy | P | |
+| -   | F06 | Implement combination strategy class | P | |
+| -   | F06 | Implement giving each player a strategy through CMD arguments | P | |
 | -   | F05 | Player keeping random dice at their turn | B (F02) | | 
 | -   | F06 | Score points: 3-of-a-kind | B (F04) | | 
 | ... | ... | ... |
