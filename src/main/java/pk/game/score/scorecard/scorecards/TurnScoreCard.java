@@ -1,6 +1,7 @@
 package pk.game.score.scorecard.scorecards;
 
 import pk.game.GameRules;
+import pk.game.score.scorable.Bonus;
 import pk.game.score.scorable.Groups;
 import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.AbstractScoreCard;
@@ -31,6 +32,10 @@ public class TurnScoreCard extends AbstractScoreCard {
             }
         });
         super.getScoreCount().putAll(map); // Add new scores
+
+        if(GameRules.isBonusChestRoll(this)) { // Is there a bonus chest in the scorecard?
+            this.addScore(Bonus.CHEST, 1);
+        }
     }
 
     @Override
