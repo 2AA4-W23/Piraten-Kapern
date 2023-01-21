@@ -67,8 +67,8 @@ public class GameRules {
         scoreContribDice += goldCount + diamondCount;
 
         // Cancel out any gold and diamond combinations
-        scoreContribDice += (goldCount >= Groups.GROUP_OF_3.getGroupSize()) ? -goldCount : 0;
-        scoreContribDice += (diamondCount >= Groups.GROUP_OF_3.getGroupSize()) ? -diamondCount : 0;
+        scoreContribDice += goldCount >= Groups.GROUP_OF_3.getGroupSize() ? -goldCount : 0;
+        scoreContribDice += diamondCount >= Groups.GROUP_OF_3.getGroupSize() ? -diamondCount : 0;
 
 
         return scoreContribDice == GameRules.MAX_DICE;

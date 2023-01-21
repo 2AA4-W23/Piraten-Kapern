@@ -12,7 +12,7 @@ public class GameScoreCard extends AbstractScoreCard {
     @Override
     public void addScore(Scorable face, int count) {
         // If there is already a record of this Face just increase by count, otherwise set to count
-        super.getScoreCount().compute(face, (k, v) -> (Objects.isNull(v)) ? count : v+count);
+        super.getScoreCount().compute(face, (k, v) -> Objects.isNull(v) ? count : v+count);
     }
 
     @Override
