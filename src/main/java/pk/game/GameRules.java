@@ -2,9 +2,13 @@ package pk.game;
 
 import pk.game.dice.Dice;
 import pk.game.player.Player;
+import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Groups;
+import pk.game.score.scorable.Scorable;
+import pk.game.score.scorecard.scorecards.TurnScoreCard;
 
 import java.util.Map;
+import java.util.Set;
 
 public class GameRules {
 
@@ -44,6 +48,30 @@ public class GameRules {
      */
     public static boolean didPlayerReachWinScore(Player player) {
         return player.getScoreCard().totalScore() >= GameRules.WIN_SCORE;
+    }
+
+    /**
+     *
+     * @param scoreCard The {@link TurnScoreCard} that the player uses each turn
+     * @return Whether the current scorecard has a bonus chest or not
+     */
+    public static boolean isBonusChestRoll(TurnScoreCard scoreCard) {
+        Set<Map.Entry<Scorable, Integer>> scoreEntries = scoreCard.getScoreCount().entrySet();
+
+        // Get counts
+        int goldCount = scoreCard.getScoreCount().getOrDefault(Faces.GOLD, 0);
+        int diamondCount = scoreCard.getScoreCount().getOrDefault(Faces.DIAMOND, 0);
+        int scoreContribDice = scoreEntries.stream().filter(e -> e.getKey() instanceof Groups)
+                                                    .mapToInt(e -> ((Groups) e.getKey()).getGroupSize())
+                                                    .sum();
+        scoreContribDice += goldCount + diamondCount;
+
+        // Cancel out any gold and diamond combinations
+        scoreContribDice += (goldCount >= Groups.GROUP_OF_3.getGroupSize()) ? -goldCount : 0;
+        scoreContribDice += (diamondCount >= Groups.GROUP_OF_3.getGroupSize()) ? -diamondCount : 0;
+
+
+        return scoreContribDice == GameRules.MAX_DICE;
     }
 
 }
