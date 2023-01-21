@@ -56,7 +56,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F04 | Group scoring | D | 20/01/23 | 20/01/23
 | -   | F04I | Implement groups enum to know the score of each group | D | 20/01/23 | 20/01/23
 | -   | F04II | Implement turn scorecard to compute combinations  | D | 20/01/23 | 20/01/23
-| -   | F05 | Bonus chest | P | |
+| -   | F05 | Bonus chest | P | 20/01/23 |
 | -   | F05I | Implement Bonus Chest Enum | P | |
 | -   | F05II | Implement turn scorecard to detect bonus chest | P | |
 | -   | F06 | Implement combination strategy | P | |
