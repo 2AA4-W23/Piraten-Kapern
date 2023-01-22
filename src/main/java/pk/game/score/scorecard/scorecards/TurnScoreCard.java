@@ -28,7 +28,7 @@ public class TurnScoreCard extends AbstractScoreCard {
         map.forEach((k, v) -> {
             Groups group = GameRules.groupMap.get(v);
             if(Objects.nonNull(group)) {
-                super.getScoreCount().put(group, 1);
+                this.addScore(group, 1);
             }
         });
         super.getScoreCount().putAll(map); // Add new scores
