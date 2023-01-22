@@ -8,6 +8,7 @@ import pk.game.strategy.player.PlayerStrategy;
 
 public class RandomStrategy implements PlayerStrategy {
 
+    public final static String INPUT_NAME = "random";
     private static final RandomStrategy INSTANCE = new RandomStrategy();
 
     /**

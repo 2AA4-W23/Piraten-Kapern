@@ -23,9 +23,9 @@ public class Player {
     private final Counter rollsPlayed;
     private boolean isTurnOver;
 
-    public Player() {
+    public Player(PlayerStrategy strategy) {
         this.id = Player.PLAYER_COUNT;
-        this.strategy = RandomStrategy.getInstance();
+        this.strategy = strategy;
         this.scoreCard = new GameScoreCard();
         this.turnScoreCard = new TurnScoreCard();
         this.diceHolder = new DiceHolder();
@@ -139,6 +139,7 @@ public class Player {
         ));
 
         do {
+            GameLogger.debugLog(String.format("Using strategy: %s", this.strategy.getClass().getSimpleName()));
             this.strategy.use(this);
         } while (!this.isTurnOver()); // Is the players turn not yet over?
 

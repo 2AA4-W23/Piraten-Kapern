@@ -1,6 +1,7 @@
 package pk;
 
 import pk.game.Game;
+import pk.game.strategy.player.PlayerStrategy;
 import pk.logging.GameLogger;
 
 public class Simulation {
@@ -11,8 +12,8 @@ public class Simulation {
     // Class fields
     private final Game game;
 
-    public Simulation() {
-        this.game = new Game();
+    public Simulation(PlayerStrategy... strategies) {
+        this.game = new Game(strategies);
     }
 
     /**

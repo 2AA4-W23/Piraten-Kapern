@@ -1,6 +1,7 @@
 package pk.game;
 
 import pk.game.player.Player;
+import pk.game.strategy.player.PlayerStrategy;
 
 public class Game {
 
@@ -8,9 +9,9 @@ public class Game {
     private final Player p1;
     private final Player p2;
 
-    public Game() {
-        this.p1 = new Player();
-        this.p2 = new Player();
+    public Game(PlayerStrategy... strategies) {
+        this.p1 = new Player(strategies[0]);
+        this.p2 = new Player(strategies[1]);
     }
 
     /**

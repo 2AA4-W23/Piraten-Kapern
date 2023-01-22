@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ComboStrategy implements PlayerStrategy {
+
+    public final static String INPUT_NAME = "combo";
     private final static ComboStrategy INSTANCE = new ComboStrategy();
 
     /**
