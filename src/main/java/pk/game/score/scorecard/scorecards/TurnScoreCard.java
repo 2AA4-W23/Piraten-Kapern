@@ -14,7 +14,7 @@ public class TurnScoreCard extends AbstractScoreCard {
     @Override
     public void addScore(Scorable face, int count) {
         // If there is already a record of this Face just overwrite it
-        super.getScoreCount().put(face, count);
+        super.getScoreCount().compute(face, (k, v) -> Objects.isNull(v) ? count : v+count);
     }
 
     /**
