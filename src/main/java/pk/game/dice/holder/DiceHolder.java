@@ -36,6 +36,10 @@ public class DiceHolder {
      * @return The {@link Dice} that can be rolled
      */
     public Stream<Dice> getRollableDice() {
+        // Ensure there is always 2 dice to roll
+        if(this.diceStream().filter(d -> !Faces.SKULL.equals(d.getFace())).count() < GameRules.MIN_DICE)
+            return Stream.empty();
+
         return this.diceStream().filter(d -> !Faces.SKULL.equals(d.getFace()));
     }
 
