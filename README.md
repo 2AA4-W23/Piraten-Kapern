@@ -59,7 +59,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F05 | Bonus chest | D | 20/01/23 | 21/01/23
 | -   | F05I | Implement Bonus Chest Enum | D | 20/01/23 | 20/01/23
 | -   | F05II | Implement turn scorecard to detect bonus chest | D | 21/01/23 | 21/01/23
-| -   | F06 | Implement combination strategy | P | |
+| -   | F06 | Implement combination strategy | D | 21/01/23 | 22/01/23
 | -   | F06I | Implement combination strategy class | D | 21/01/23 | 21/01/23
 | -   | F06II | Implement giving each player a strategy through CMD arguments | D | 22/01/23 | 22/01/23
 | -   | F05 | Player keeping random dice at their turn | B (F02) | | 
