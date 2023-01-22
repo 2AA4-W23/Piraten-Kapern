@@ -41,6 +41,9 @@ public class PiratenKarpen {
                     "Invalid strategies, need at least 2! Only available strategies are %s and %s.", randomStrategy, comboStrategy
             );
             System.exit(1);
+        } else if(strategies.size() > 5) {
+            System.out.println("Can only have a 2-5 players!");
+            System.exit(1);
         }
 
         // The strategies that
