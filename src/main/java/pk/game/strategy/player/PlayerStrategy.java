@@ -1,12 +1,6 @@
 package pk.game.strategy.player;
 
-import pk.game.GameRules;
 import pk.game.player.Player;
-import pk.game.score.scorable.Faces;
-import pk.logging.GameLogger;
-
-import java.util.Arrays;
-import java.util.Map;
 
 /**
  * A strategy used by a player to play their turn
