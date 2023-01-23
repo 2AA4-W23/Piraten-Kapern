@@ -9,8 +9,8 @@ public class NopCard extends AbstractCard {
 
     private final PlayerStrategy strategy;
 
-    protected NopCard(String name) {
-        super(name);
+    public NopCard() {
+        super(NopCard.NAME);
         this.strategy = null;
     }
 
