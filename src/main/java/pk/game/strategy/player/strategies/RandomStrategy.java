@@ -4,9 +4,9 @@ import pk.game.GameRules;
 import pk.game.Util;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
-import pk.game.strategy.player.PlayerStrategy;
+import pk.game.strategy.player.AbstractPlayerStrategy;
 
-public class RandomStrategy implements PlayerStrategy {
+public class RandomStrategy extends AbstractPlayerStrategy {
 
     public final static String INPUT_NAME = "random";
     private static final RandomStrategy INSTANCE = new RandomStrategy();

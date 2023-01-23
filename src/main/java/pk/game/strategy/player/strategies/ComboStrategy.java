@@ -4,14 +4,14 @@ import pk.game.dice.Dice;
 import pk.game.player.Player;
 import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Groups;
-import pk.game.strategy.player.PlayerStrategy;
+import pk.game.strategy.player.AbstractPlayerStrategy;
 
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ComboStrategy implements PlayerStrategy {
+public class ComboStrategy extends AbstractPlayerStrategy {
 
     public final static String INPUT_NAME = "combo";
     private final static ComboStrategy INSTANCE = new ComboStrategy();
