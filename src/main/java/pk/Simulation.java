@@ -49,10 +49,9 @@ public class Simulation {
             int playerWins = p.getWins().getCount();
             double playerWinRate = playerWins/(double)Simulation.NUM_SIMS;
             System.out.printf(
-                    "Player %d won %%%.2f of the games using the strategy %s!\n",
+                    "Player %d won %%%.2f of the games!\n",
                     p.getId(),
-                    playerWinRate*100,
-                    p.getStrategyName()
+                    playerWinRate*100
             );
         });
     }
