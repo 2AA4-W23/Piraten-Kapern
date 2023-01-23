@@ -1,6 +1,7 @@
 package pk.game.cards;
 
 import pk.game.player.Player;
+import pk.logging.GameLogger;
 
 public abstract class AbstractCard implements Card {
 
@@ -16,5 +17,7 @@ public abstract class AbstractCard implements Card {
     }
 
     @Override
-    public abstract void use(Player player);
+    public void use(Player player) {
+        GameLogger.debugLog(String.format("Using the %s card", this.getName()));
+    }
 }
