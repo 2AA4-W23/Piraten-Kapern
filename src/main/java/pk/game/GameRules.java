@@ -30,7 +30,7 @@ public class GameRules {
      * @return A boolean determining whether the number of dice the {@link Player} rolled end their turn or not
      */
     public static boolean playerSkullsEndTurn(Player player) {
-        return player.getDiceHolder().getSkullCount() >= 3;
+        return player.getTurnScoreCard().getScoreCount().getOrDefault(Faces.SKULL, 0) >= 3;
     }
 
     /**
