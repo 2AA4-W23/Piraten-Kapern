@@ -110,6 +110,14 @@ public class Player {
     }
 
     /**
+     *
+     * @return The name of the {@link PlayerStrategy} being used by this {@link Player}
+     */
+    public String getStrategyName() {
+        return this.strategy.getClass().getSimpleName();
+    }
+
+    /**
      * Reset the player so they can play their next turn
      */
     private void resetTurn() {

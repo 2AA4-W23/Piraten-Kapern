@@ -44,14 +44,16 @@ public class Simulation {
      * Display the statistics of the simulation
      */
     public void displayStats() {
-        // Calculate win statistics for both players
-        int p1Wins = this.getGame().getPlayer1().getWins().getCount();
-        int p2Wins = this.getGame().getPlayer2().getWins().getCount();
-        double p1WinRate = p1Wins/(double)Simulation.NUM_SIMS;
-        double p2WinRate = p2Wins/(double)Simulation.NUM_SIMS;
-
-        // Print game results
-        System.out.printf("Player 1 won %%%.2f of the games!\n", p1WinRate*100);
-        System.out.printf("Player 2 won %%%.2f of the games!\n", p2WinRate*100);
+        // Calculate win statistics for all players
+        this.game.playerStream().forEach(p -> {
+            int playerWins = p.getWins().getCount();
+            double playerWinRate = playerWins/(double)Simulation.NUM_SIMS;
+            System.out.printf(
+                    "Player %d won %%%.2f of the games using the strategy %s!\n",
+                    p.getId(),
+                    playerWinRate*100,
+                    p.getStrategyName()
+            );
+        });
     }
 }

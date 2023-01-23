@@ -3,70 +3,72 @@ package pk.game;
 import pk.game.player.Player;
 import pk.game.strategy.player.PlayerStrategy;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class Game {
 
     // Players of the game
-    private final Player p1;
-    private final Player p2;
+    private final Player[] players;
 
     public Game(PlayerStrategy... strategies) {
-        this.p1 = new Player(strategies[0]);
-        this.p2 = new Player(strategies[1]);
+        this.players = new Player[strategies.length];
+        for(int i=0; i < strategies.length; i++) {
+            this.players[i] = new Player(strategies[i]);
+        }
     }
 
     /**
      *
      * @return The first {@link Player} in this game
      */
-    public Player getPlayer1() {
-        return this.p1;
+    public Player[] getPlayers() {
+        return this.players;
     }
 
     /**
      *
-     * @return The second {@link Player} in this game
+     * @return A {@link Stream} object with all the {@link Player}s in the game
      */
-    public Player getPlayer2() {
-        return this.p2;
+    public Stream<Player> playerStream() {
+        return Arrays.stream(this.getPlayers());
     }
 
     /**
      * Reset the game so that it can be replayed by the {@link Player}s
      */
     public void reset() {
-        this.getPlayer1().resetGame();
-        this.getPlayer2().resetGame();
+        this.playerStream().forEach(Player::resetGame);
     }
 
     /**
      * Play the games
      */
     public void play() {
+        boolean shouldEndGame = false;
+
+        // Play turns
         do {
-            // Players play their turns
-            this.getPlayer1().play();
-            if(GameRules.didPlayerReachWinScore(this.getPlayer1())) { // Player 1 reached 6k points?
-                // Give player 2 an extra turn
-                this.getPlayer2().play();
-                break;
+            for(Player player : this.getPlayers()) {
+                player.play(); // Make player play their turn
+
+                if(GameRules.didPlayerReachWinScore(player)) { // Did the player reach the winning score?
+                    this.playerStream().filter(p -> p != player).forEach(Player::play); // Give all other players 1 more turn
+                    shouldEndGame = true;
+                    break;
+                }
             }
+        } while(!shouldEndGame);
 
-            this.getPlayer2().play();
-            if(GameRules.didPlayerReachWinScore(this.getPlayer2())) { // Player 2 reached 6k points?
-                // Give player 1 an extra turn
-                this.getPlayer1().play();
-                break;
-            }
-        } while(true);
+        // Add a win to the player with the maximum score
+        int maxScore = this.playerStream().mapToInt(p -> p.getScoreCard().totalScore()).max().getAsInt(); // Max score
 
-        // Get the scores of the players
-        int p1Score = this.getPlayer1().getScoreCard().totalScore();
-        int p2Score = this.getPlayer2().getScoreCard().totalScore();
-
-        if(p1Score > p2Score) { // Did player p1 win?
-            this.getPlayer1().getWins().add(1);
-        } else if(p1Score < p2Score) { // Did player p2 win?
-            this.getPlayer2().getWins().add(1);
+        long numPlayerWinScore = this.playerStream().filter(p -> p.getScoreCard().totalScore() == maxScore).count();
+        if(numPlayerWinScore == 1){ // Allow only 1 winner
+            // Add wins to the winning player
+            this.playerStream()
+                .filter(p -> p.getScoreCard().totalScore() == maxScore)
+                .findFirst().ifPresent(p -> p.getWins().add(1));
         }
     }
 
