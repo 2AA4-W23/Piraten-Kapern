@@ -66,7 +66,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F08 | Implement cards into the game | P |  |
 | -   | F08I | Implement card interface | D | 23/01/23 | 23/01/23
 | -   | F08II | Implement abstract card class | D | 23/01/23 | 23/01/23
-| -   | F08III | Implement Sea Battle card | P |  |
+| -   | F08III | Implement Sea Battle card | D | 23/01/23 | 23/01/23
 | -   | F08IV | Implement Card Deck | P |  |
 | -   | F08V | Implement player to use a card in their turn | P |  |
 | ... | ... | ... |
