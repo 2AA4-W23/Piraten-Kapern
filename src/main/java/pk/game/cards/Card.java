@@ -1,6 +1,7 @@
 package pk.game.cards;
 
 import pk.game.player.Player;
+import pk.game.strategy.player.PlayerStrategy;
 
 public interface Card {
     /**
@@ -14,4 +15,10 @@ public interface Card {
      * @return The name of this {@link Card}
      */
     String getName();
+
+    /**
+     *
+     * @return The {@link PlayerStrategy} tied to this card
+     */
+    PlayerStrategy getStrategy();
 }

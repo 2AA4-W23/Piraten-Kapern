@@ -1,6 +1,7 @@
 package pk.game.cards;
 
 import pk.game.player.Player;
+import pk.game.strategy.player.PlayerStrategy;
 import pk.logging.GameLogger;
 
 public abstract class AbstractCard implements Card {
@@ -15,6 +16,9 @@ public abstract class AbstractCard implements Card {
     public String getName() {
         return this.name;
     }
+
+    @Override
+    public abstract PlayerStrategy getStrategy();
 
     @Override
     public void use(Player player) {
