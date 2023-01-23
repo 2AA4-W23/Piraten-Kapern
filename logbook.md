@@ -11,3 +11,4 @@
 | 19/01/2023   | Fix win logic to check if a player has reached 6k points and give other player an extra turn<br/>Modularize the steps of a players' strategy<br/>Implement a game rules class to handle all the rules dictated by the game rulebook |
 | 20/01/2023   | Implemented the following features:<br/>1. Set of identical objects scoring<br/>2. Bonus chest scoring  |
 | 21/01/2023   | Implemented the following features:<br/>1. Complete bonus chest feature<br/>2. Work on combination strategy |
+| 22/01/2023   | Implemented the following features:<br/>1. Get player strategies through the command line arguments<br/>2. Add feature to simulate games with 2-5 players |
