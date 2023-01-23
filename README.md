@@ -62,6 +62,12 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F06 | Implement combination strategy | D | 21/01/23 | 22/01/23
 | -   | F06I | Implement combination strategy class | D | 21/01/23 | 21/01/23
 | -   | F06II | Implement giving each player a strategy through CMD arguments | D | 22/01/23 | 22/01/23
-| -   | F07 | Implement 2-5 players playing the game | P | 22/01/23 | 22/01/23
+| -   | F07 | Implement 2-5 players playing the game | P | 22/01/23 | 22/01/2023
+| -   | F08 | Implement cards into the game | P |  |
+| -   | F08I | Implement card interface | P |  |
+| -   | F08II | Implement abstract card class | P |  |
+| -   | F08III | Implement Sea Battle card | P |  |
+| -   | F08IV | Implement Card Deck | P |  |
+| -   | F08V | Implement player to use a card in their turn | P |  |
 | ... | ... | ... |
 
