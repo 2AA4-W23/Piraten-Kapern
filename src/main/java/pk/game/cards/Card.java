@@ -8,4 +8,10 @@ public interface Card {
      * @param player The {@link Player} using this card
      */
     void use(Player player);
+
+    /**
+     *
+     * @return The name of this {@link Card}
+     */
+    String getName();
 }

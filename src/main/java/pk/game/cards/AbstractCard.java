@@ -10,10 +10,7 @@ public abstract class AbstractCard implements Card {
         this.name = name;
     }
 
-    /**
-     *
-     * @return The name of this {@link Card}
-     */
+    @Override
     public String getName() {
         return this.name;
     }
