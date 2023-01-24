@@ -1,4 +1,5 @@
 import pk.Simulation;
+import pk.game.GameRules;
 import pk.game.strategy.player.PlayerStrategy;
 import pk.game.strategy.player.strategies.ComboStrategy;
 import pk.game.strategy.player.strategies.RandomStrategy;
@@ -36,13 +37,14 @@ public class PiratenKarpen {
                 .filter(s -> s.equals(randomStrategy) || s.equals(comboStrategy))
                 .collect(Collectors.toList());
 
-        if(strategies.size() < 2) { // Not enough strategies?
+        if(strategies.size() < GameRules.MIN_PLAYERS) { // Not enough strategies?
             System.out.printf(
-                    "Invalid strategies, need at least 2! Only available strategies are %s and %s.", randomStrategy, comboStrategy
+                    "Invalid strategies, need at least %d! Only available strategies are %s and %s.",
+                    GameRules.MIN_PLAYERS, randomStrategy, comboStrategy
             );
             System.exit(1);
-        } else if(strategies.size() > 5) {
-            System.out.println("Can only have a 2-5 players!");
+        } else if(strategies.size() > GameRules.MAX_PLAYERS) {
+            System.out.printf("Can only have a %d-%d players!", GameRules.MIN_PLAYERS, GameRules.MAX_PLAYERS);
             System.exit(1);
         }
 
