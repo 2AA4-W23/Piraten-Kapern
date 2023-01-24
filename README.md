@@ -49,7 +49,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F03 | Fix code and implement logging.  |  D  |  16/01/23  | 19/01/23
 | -   | F03I | Implement simulation class to handle all simulation tasks.  |  D  | 17/01/23  | 17/01/23
 | -   | F03II | Update documentation  |  D  |  17/01/23  | 17/01/23
-| -   | F03III | Implement Log4j logger  |  P  | 17/01/23 | 18/01/23
+| -   | F03III | Implement Log4j logger  |  D  | 17/01/23 | 18/01/23
 | -   | F03IV | Implement general Scorable so that we can have different scorable types  |  D  | 18/01/23 | 18/01/23
 | -   | F03V | Implement generic scorecard to differentiate between game and turn scorecards  |  D  | 18/01/23 | 18/01/23
 | -   | F03VI | Implement dice holder to keep track of rolls |  D  | 18/01/2023 | 18/01/23
@@ -65,7 +65,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F06 | Implement combination strategy | D | 21/01/23 | 22/01/23
 | -   | F06I | Implement combination strategy class | D | 21/01/23 | 21/01/23
 | -   | F06II | Implement giving each player a strategy through CMD arguments | D | 22/01/23 | 22/01/23
-| -   | F07 | Implement 2-5 players playing the game | P | 22/01/23 | 22/01/2023
+| -   | F07 | Implement 2-5 players playing the game | D | 22/01/23 | 22/01/2023
 | -   | F08 | Implement cards into the game | D | 23/01/23 | 24/01/23
 | -   | F08I | Implement card interface | D | 23/01/23 | 23/01/23
 | -   | F08II | Implement abstract card class | D | 23/01/23 | 23/01/23
