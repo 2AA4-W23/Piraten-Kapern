@@ -18,7 +18,8 @@
   * To package the project as a turn-key artefact:
     * `mvn package`
   * To run the packaged delivery:
-    * `java -jar target/piraten-karpen-jar-with-dependencies.jar` 
+    *  Strategies 3 to 5 are optional
+    * `java -jar target/piraten-karpen-jar-with-dependencies.jar strategy1 strategy2 strategy3 strategy4 strategy5` 
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 
