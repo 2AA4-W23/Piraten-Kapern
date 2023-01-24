@@ -1,7 +1,11 @@
 package pk.game;
 
+import pk.game.cards.Card;
+import pk.game.cards.nop.NopCard;
+import pk.game.cards.seabattle.SeaBattleCard;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
+import pk.game.score.scorable.Cards;
 import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Groups;
 import pk.game.score.scorable.Scorable;
@@ -23,6 +27,23 @@ public class GameRules {
             Groups.GROUP_OF_7.getGroupSize(), Groups.GROUP_OF_7,
             Groups.GROUP_OF_8.getGroupSize(), Groups.GROUP_OF_8
     );
+    public static final Card[] GAME_CARDS = { // All the cards in the game
+            new SeaBattleCard(Cards.SEA_BATTLE_300, 2),
+            new SeaBattleCard(Cards.SEA_BATTLE_300, 2),
+            new SeaBattleCard(Cards.SEA_BATTLE_500, 3),
+            new SeaBattleCard(Cards.SEA_BATTLE_500, 3),
+            new SeaBattleCard(Cards.SEA_BATTLE_1000, 4),
+            new SeaBattleCard(Cards.SEA_BATTLE_1000, 4),
+            new NopCard(), new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard(),
+            new NopCard(), new NopCard(), new NopCard()
+    };
 
     /**
      *
