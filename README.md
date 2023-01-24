@@ -69,6 +69,6 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F08III | Implement Sea Battle card | D | 23/01/23 | 23/01/23
 | -   | F08IV | Implement Card Deck | D | 23/01/23 | 24/01/23
 | -   | F08V | Implement player to use a card in their turn | D | 23/01/23 | 24/01/23
-| -   | F08VI | Prevent access to scorecard hashmap | P | 24/01/23 | 
+| -   | F08VI | Prevent access to scorecard hashmap | D | 24/01/23 | 24/01/23 
 | ... | ... | ... |
 
