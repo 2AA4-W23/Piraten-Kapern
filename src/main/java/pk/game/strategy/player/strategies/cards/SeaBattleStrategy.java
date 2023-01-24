@@ -1,6 +1,6 @@
 package pk.game.strategy.player.strategies.cards;
 
-import pk.game.cards.seabattle.SeaBattleCard;
+import pk.game.cards.SeaBattleCard;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
 import pk.game.score.scorable.Faces;

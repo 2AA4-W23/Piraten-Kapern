@@ -1,6 +1,5 @@
-package pk.game.cards.seabattle;
+package pk.game.cards;
 
-import pk.game.cards.AbstractCard;
 import pk.game.player.Player;
 import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Scorable;

@@ -1,6 +1,5 @@
-package pk.game.cards.nop;
+package pk.game.cards;
 
-import pk.game.cards.AbstractCard;
 import pk.game.player.Player;
 import pk.game.strategy.player.PlayerStrategy;
 

@@ -1,8 +1,8 @@
 package pk.game;
 
 import pk.game.cards.Card;
-import pk.game.cards.nop.NopCard;
-import pk.game.cards.seabattle.SeaBattleCard;
+import pk.game.cards.NopCard;
+import pk.game.cards.SeaBattleCard;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
 import pk.game.score.scorable.Cards;
