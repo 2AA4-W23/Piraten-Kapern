@@ -21,7 +21,7 @@ public class GameRules {
     public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
     public static final int MIN_PLAYERS = 2; // The minimum number of players that can play the game
     public static final int MAX_PLAYERS = 5; // The maximum number of players that can play the game
-    public static final Map<Integer, Groups> groupMap = Map.of( // All the groups to score
+    public static final Map<Integer, Groups> GROUP_MAP = Map.of( // All the groups to score
             Groups.GROUP_OF_3.getGroupSize(), Groups.GROUP_OF_3,
             Groups.GROUP_OF_4.getGroupSize(), Groups.GROUP_OF_4,
             Groups.GROUP_OF_5.getGroupSize(), Groups.GROUP_OF_5,

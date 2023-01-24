@@ -8,7 +8,6 @@ import pk.game.score.scorecard.AbstractScoreCard;
 
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 public class TurnScoreCard extends AbstractScoreCard {
     /**
@@ -20,7 +19,7 @@ public class TurnScoreCard extends AbstractScoreCard {
 
         // Look for combinations
         map.forEach((k, v) -> {
-            Groups group = GameRules.groupMap.get(v);
+            Groups group = GameRules.GROUP_MAP.get(v);
             if(Objects.nonNull(group)) {
                 this.addScore(group, 1);
             }
