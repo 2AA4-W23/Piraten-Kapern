@@ -21,6 +21,7 @@ public class GameRules {
     public static final int WIN_SCORE = 6000; // The minimum score needed by a player to win
     public static final int MIN_PLAYERS = 2; // The minimum number of players that can play the game
     public static final int MAX_PLAYERS = 5; // The maximum number of players that can play the game
+    public static final int SKULL_LOSE_COUNT = 3; // The number of skulls that if collected makes a player lose their points
     public static final Map<Integer, Groups> GROUP_MAP = Map.of( // All the groups to score
             Groups.GROUP_OF_3.getGroupSize(), Groups.GROUP_OF_3,
             Groups.GROUP_OF_4.getGroupSize(), Groups.GROUP_OF_4,
@@ -53,7 +54,7 @@ public class GameRules {
      * @return A boolean determining whether the number of dice the {@link Player} rolled end their turn or not
      */
     public static boolean playerSkullsEndTurn(Player player) {
-        return player.getTurnScoreCard().getScore(Faces.SKULL) >= 3;
+        return player.getTurnScoreCard().getScore(Faces.SKULL) >= GameRules.SKULL_LOSE_COUNT;
     }
 
     /**
