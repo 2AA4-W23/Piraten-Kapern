@@ -1,5 +1,6 @@
 package pk.game;
 
+import pk.game.cards.deck.CardDeck;
 import pk.game.player.Player;
 import pk.game.strategy.player.PlayerStrategy;
 
@@ -10,9 +11,11 @@ public class Game {
 
     // Players of the game
     private final Player[] players;
+    private final CardDeck deck;
 
     public Game(PlayerStrategy... strategies) {
         this.players = new Player[strategies.length];
+        this.deck = new CardDeck(GameRules.GAME_CARDS);
         for(int i=0; i < strategies.length; i++) {
             this.players[i] = new Player(strategies[i]);
         }
@@ -39,6 +42,7 @@ public class Game {
      */
     public void reset() {
         this.playerStream().forEach(Player::resetGame);
+        this.deck.shuffle();
     }
 
     /**
@@ -50,10 +54,10 @@ public class Game {
         // Play turns
         do {
             for(Player player : this.getPlayers()) {
-                player.play(); // Make player play their turn
+                player.play(this.deck.draw()); // Make player play their turn
 
                 if(GameRules.didPlayerReachWinScore(player)) { // Did the player reach the winning score?
-                    this.playerStream().filter(p -> p != player).forEach(Player::play); // Give all other players 1 more turn
+                    this.playerStream().filter(p -> p != player).forEach(p -> p.play(this.deck.draw())); // Give all other players 1 more turn
                     shouldEndGame = true;
                     break;
                 }

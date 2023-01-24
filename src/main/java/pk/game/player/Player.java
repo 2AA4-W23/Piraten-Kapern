@@ -1,6 +1,7 @@
 package pk.game.player;
 
 import pk.game.GameRules;
+import pk.game.cards.Card;
 import pk.game.count.Counter;
 import pk.game.dice.holder.DiceHolder;
 import pk.game.score.scorecard.scorecards.GameScoreCard;
@@ -8,6 +9,8 @@ import pk.game.score.scorecard.scorecards.TurnScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
 import pk.game.strategy.player.strategies.RandomStrategy;
 import pk.logging.GameLogger;
+
+import java.util.Objects;
 
 public class Player {
 
@@ -139,20 +142,26 @@ public class Player {
     /**
      * Let this player play their turn
      */
-    public void play() {
+    public void play(Card card) {
         GameLogger.debugLog(String.format(
                 "Player #%d playing turn %d",
                 this.getId(),
                 this.getTurnsPlayed().getCount()+1
         ));
 
+        // Select the player strategy to use
+        PlayerStrategy strategy = Objects.isNull(card.getStrategy()) ? this.strategy : card.getStrategy();
+
         do {
-            GameLogger.debugLog(String.format("Using strategy: %s", this.strategy.getClass().getSimpleName()));
-            this.strategy.use(this);
+            GameLogger.debugLog(String.format("Using strategy: %s", strategy.getClass().getSimpleName()));
+            strategy.use(this);
         } while (!this.isTurnOver()); // Is the players turn not yet over?
 
         // Increment number of turns played
         this.getTurnsPlayed().add(1);
+
+        // Use the card on the player
+        card.use(this);
 
         // Log what has been collected during this turn
         GameLogger.debugLog(String.format(
