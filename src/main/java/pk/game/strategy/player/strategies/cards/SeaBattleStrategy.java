@@ -33,7 +33,7 @@ public class SeaBattleStrategy extends AbstractCardStrategy<SeaBattleCard> {
      * @return The number of {@link Faces#SABER} the {@link Player} has
      */
     private int getNumSabers(Player player) {
-        return player.getTurnScoreCard().getScoreCount().getOrDefault(Faces.SABER, 0);
+        return player.getTurnScoreCard().getScore(Faces.SABER);
     }
 
     /**

@@ -45,12 +45,12 @@ public class SeaBattleCard extends AbstractCard {
     public void use(Player player) {
         super.use(player);
         // The number of swords rolled by the player
-        int numSwords = player.getTurnScoreCard().getScoreCount().getOrDefault(Faces.SABER, 0);
+        int numSwords = player.getTurnScoreCard().getScore(Faces.SABER);
         if(numSwords >= this.getNumSwords()) { // Did the player roll enough swords?
             player.getTurnScoreCard().addScore(this.getScoreable(), 1);
         } else {
             player.getTurnScoreCard().clear();
-            player.getTurnScoreCard().getScoreCount().put(this.getScoreable(), -1);
+            player.getTurnScoreCard().putScore(this.getScoreable(), -1);
         }
     }
 }

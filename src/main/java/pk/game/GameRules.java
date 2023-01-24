@@ -51,7 +51,7 @@ public class GameRules {
      * @return A boolean determining whether the number of dice the {@link Player} rolled end their turn or not
      */
     public static boolean playerSkullsEndTurn(Player player) {
-        return player.getTurnScoreCard().getScoreCount().getOrDefault(Faces.SKULL, 0) >= 3;
+        return player.getTurnScoreCard().getScore(Faces.SKULL) >= 3;
     }
 
     /**
@@ -77,11 +77,11 @@ public class GameRules {
      * @return Whether the current scorecard has a bonus chest or not
      */
     public static boolean isBonusChestRoll(TurnScoreCard scoreCard) {
-        Set<Map.Entry<Scorable, Integer>> scoreEntries = scoreCard.getScoreCount().entrySet();
+        Set<Map.Entry<Scorable, Integer>> scoreEntries = scoreCard.getScoreEntrySet();
 
         // Get counts
-        int goldCount = scoreCard.getScoreCount().getOrDefault(Faces.GOLD, 0);
-        int diamondCount = scoreCard.getScoreCount().getOrDefault(Faces.DIAMOND, 0);
+        int goldCount = scoreCard.getScore(Faces.GOLD);
+        int diamondCount = scoreCard.getScore(Faces.DIAMOND);
         int scoreContribDice = scoreEntries.stream().filter(e -> e.getKey() instanceof Groups)
                                                     .mapToInt(e -> ((Groups) e.getKey()).getGroupSize())
                                                     .sum();

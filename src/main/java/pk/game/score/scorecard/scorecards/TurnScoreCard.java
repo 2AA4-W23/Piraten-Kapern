@@ -11,12 +11,6 @@ import java.util.Objects;
 import java.util.Set;
 
 public class TurnScoreCard extends AbstractScoreCard {
-    @Override
-    public void addScore(Scorable face, int count) {
-        // If there is already a record of this Face just add to it
-        super.getScoreCount().compute(face, (k, v) -> Objects.isNull(v) ? count : v+count);
-    }
-
     /**
      *
      * @param map The map of the scorables to add and their counts
@@ -36,18 +30,5 @@ public class TurnScoreCard extends AbstractScoreCard {
         if(GameRules.isBonusChestRoll(this)) { // Is there a bonus chest in the scorecard?
             this.addScore(Bonus.CHEST, 1);
         }
-    }
-
-    @Override
-    public void clear() {
-        super.getScoreCount().clear();
-    }
-
-    @Override
-    public int totalScore() {
-        Set<Map.Entry<Scorable, Integer>> entrySet = super.getScoreCount().entrySet();
-
-        // Sum up the score
-        return entrySet.stream().mapToInt(e -> e.getKey().getScore()*e.getValue()).sum();
     }
 }

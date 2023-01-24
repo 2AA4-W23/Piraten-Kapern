@@ -9,35 +9,13 @@ import java.util.Set;
 
 public class GameScoreCard extends AbstractScoreCard {
 
-    @Override
-    public void addScore(Scorable face, int count) {
-        // If there is already a record of this Face just increase by count, otherwise set to count
-        super.getScoreCount().compute(face, (k, v) -> Objects.isNull(v) ? count : v+count);
-    }
-
-    @Override
-    public int totalScore() {
-        Set<Map.Entry<Scorable, Integer>> entrySet = super.getScoreCount().entrySet();
-
-        // Sum up the score
-        return entrySet.stream().mapToInt(e -> e.getKey().getScore()*e.getValue()).sum();
-    }
-
     /**
      *
      * @param scoreCard The {@link AbstractScoreCard} to merge into this one
      */
     public void merge(AbstractScoreCard scoreCard) {
-        scoreCard.getScoreCount().forEach((k, v) -> {
-            super.getScoreCount().merge(k, v, Integer::sum);
+        scoreCard.getScoreEntrySet().forEach(e -> {
+            super.getScoreCount().merge(e.getKey(), e.getValue(), Integer::sum);
         });
-    }
-
-    /**
-     * Clear the {@link GameScoreCard}
-     */
-    @Override
-    public void clear() {
-        super.getScoreCount().clear();
     }
 }
