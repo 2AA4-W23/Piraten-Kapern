@@ -10,9 +10,11 @@
   * To compile the project:
     * `mvn compile`
   * To run the project in development mode (without tracing mode):
-    * `mvn -q exec:java`
+    * Strategies 3 to 5 are optional 
+    * `mvn -q exec:java -D exec.args="strategy1 strategy2 strategy3 strategy4 strategy5"`
   * To run the project in development mode (with tracing mode):
-    * `mvn -q exec:java -D TRACE`
+    * Strategies 3 to 5 are optional
+    * `mvn -q exec:java -D TRACE -D exec.args="strategy1 strategy2 strategy3 strategy4 strategy5"`
   * To package the project as a turn-key artefact:
     * `mvn package`
   * To run the packaged delivery:
