@@ -43,6 +43,6 @@ public class SeaBattleStrategy extends AbstractCardStrategy<SeaBattleCard> {
      * @return The dice that are not {@link Faces#SABER}
      */
     private Stream<Dice> getNonSaberDice(Player player) {
-        return player.getDiceHolder().getRollableDice().filter(d -> Faces.SABER != d.getFace());
+        return player.getDiceHolder().getRollableDice(d -> Faces.SABER != d.getFace());
     }
 }
