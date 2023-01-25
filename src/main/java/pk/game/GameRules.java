@@ -77,6 +77,7 @@ public class GameRules {
     public static void roll(Stream<Dice> dice, Player player) {
         Dice[] diceArr = dice.toArray(Dice[]::new);
         if(diceArr.length < GameRules.MIN_DICE) { // Does the player have enough dice to roll
+            GameLogger.debugLog(String.format("Player #%d wants to roll %d dice", player.getId(), diceArr.length));
             player.setTurnOver(true);
             return;
         }

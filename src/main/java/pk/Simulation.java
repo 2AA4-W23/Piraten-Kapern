@@ -7,7 +7,7 @@ import pk.logging.GameLogger;
 public class Simulation {
 
     // The number of simulations to run
-    public static final int NUM_SIMS = 42;
+    public static final int NUM_SIMS = 1000;
 
     // Class fields
     private final Game game;
@@ -28,6 +28,7 @@ public class Simulation {
      * Run the simulation
      */
     public void run() {
+        System.out.println("Simulating...");
         // Simulate games
         for(int i=1; i <= Simulation.NUM_SIMS; i++) {
             GameLogger.debugLog(String.format("Game #%d\n", i));
