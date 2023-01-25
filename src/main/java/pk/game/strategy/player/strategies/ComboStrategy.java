@@ -44,7 +44,7 @@ public class ComboStrategy extends AbstractPlayerStrategy {
      * @return A {@link Stream} object with all dice that are not a part of a combination
      */
     private Stream<Dice> getNonComboDice(Player player) {
-        // Get the faces that
+        // Get the faces that are not in a combination
         Set<Map.Entry<Faces, Integer>> entrySet = player.getDiceHolder().getFacesMap().entrySet();
         Set<Faces> nonComboFaces = entrySet.stream()
                 .filter(e -> e.getValue() < Groups.GROUP_OF_3.getGroupSize() && !Faces.SKULL.equals(e.getKey()))
