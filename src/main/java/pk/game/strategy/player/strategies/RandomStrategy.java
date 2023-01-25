@@ -24,7 +24,7 @@ public class RandomStrategy extends AbstractPlayerStrategy {
     @Override
     public void otherRolls(Player player) {
         int numDiceRoll = Util.RANDOM.nextInt(GameRules.MIN_DICE, GameRules.MAX_DICE-player.getDiceHolder().getSkullCount());
-        player.getDiceHolder().getRollableDice().unordered().limit(numDiceRoll).forEach(Dice::roll);
+        GameRules.roll(player.getDiceHolder().getRollableDice().unordered().limit(numDiceRoll), player);
     }
 
     @Override

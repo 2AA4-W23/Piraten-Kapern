@@ -10,9 +10,12 @@ import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Groups;
 import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.scorecards.TurnScoreCard;
+import pk.logging.GameLogger;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class GameRules {
 
@@ -62,7 +65,24 @@ public class GameRules {
      * @param player The {@link Player} performing their first roll
      */
     public static void firstRoll(Player player) {
-        player.getDiceHolder().diceStream().forEach(Dice::roll);
+        GameRules.roll(player.getDiceHolder().diceStream(), player);
+    }
+
+    /**
+     *
+     * Ensures {@link Player} rolls at least {@link GameRules#MIN_DICE} {@link Dice}
+     * @param dice The {@link Dice} to roll
+     * @param player The {@link Player}
+     */
+    public static void roll(Stream<Dice> dice, Player player) {
+        Dice[] diceArr = dice.toArray(Dice[]::new);
+        if(diceArr.length < GameRules.MIN_DICE) { // Does the player have enough dice to roll
+            player.setTurnOver(true);
+            return;
+        }
+
+        // Roll the dice
+        Arrays.stream(diceArr).forEach(Dice::roll);
     }
 
     /**

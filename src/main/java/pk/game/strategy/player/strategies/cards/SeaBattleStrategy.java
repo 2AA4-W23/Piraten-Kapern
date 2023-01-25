@@ -1,5 +1,6 @@
 package pk.game.strategy.player.strategies.cards;
 
+import pk.game.GameRules;
 import pk.game.cards.SeaBattleCard;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
@@ -18,7 +19,7 @@ public class SeaBattleStrategy extends AbstractCardStrategy<SeaBattleCard> {
         int numSabers = this.getNumSabers(player);
 
         if(numSabers < this.getCard().getNumSwords()) { // Does the player not have enough sabers?
-            this.getNonSaberDice(player).forEach(Dice::roll);
+            GameRules.roll(this.getNonSaberDice(player), player);
         }
     }
 

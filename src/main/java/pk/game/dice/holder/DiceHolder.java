@@ -7,6 +7,7 @@ import pk.game.score.scorable.Faces;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,11 +37,16 @@ public class DiceHolder {
      * @return The {@link Dice} that can be rolled
      */
     public Stream<Dice> getRollableDice() {
-        // Ensure there is always 2 dice to roll
-        if(this.diceStream().filter(d -> !Faces.SKULL.equals(d.getFace())).count() < GameRules.MIN_DICE)
-            return Stream.empty();
-
         return this.diceStream().filter(d -> !Faces.SKULL.equals(d.getFace()));
+    }
+
+    /**
+     *
+     * @param predicate The {@link Predicate} that will be used to find the requested dice
+     * @return The {@link Dice} that match the given conditions of the {@link Predicate}
+     */
+    public Stream<Dice> getRollableDice(Predicate<? super Dice> predicate) {
+        return this.getRollableDice().filter(predicate);
     }
 
     /**

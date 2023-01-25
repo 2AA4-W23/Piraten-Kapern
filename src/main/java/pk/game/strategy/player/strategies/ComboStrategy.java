@@ -1,5 +1,6 @@
 package pk.game.strategy.player.strategies;
 
+import pk.game.GameRules;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
 import pk.game.score.scorable.Faces;
@@ -28,7 +29,7 @@ public class ComboStrategy extends AbstractPlayerStrategy {
 
     @Override
     public void otherRolls(Player player) {
-        this.getNonComboDice(player).forEach(Dice::roll);
+        GameRules.roll(this.getNonComboDice(player), player);
     }
 
     @Override
@@ -50,6 +51,6 @@ public class ComboStrategy extends AbstractPlayerStrategy {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toSet());
 
-        return player.getDiceHolder().getRollableDice().filter(d -> nonComboFaces.contains(d.getFace()));
+        return player.getDiceHolder().getRollableDice(d -> nonComboFaces.contains(d.getFace()));
     }
 }

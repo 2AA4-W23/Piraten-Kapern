@@ -24,16 +24,18 @@ public abstract class AbstractPlayerStrategy implements PlayerStrategy {
             this.otherRolls(player);
         }
 
-        // Increment the number of rolls played by user
-        player.getRollsPlayed().add(1);
-        Faces[] rollResults = player.getDiceHolder().getFaces().toArray(Faces[]::new);
+        if(!player.isTurnOver()){ // Only register roll if players turn not interrupted
+            // Increment the number of rolls played by user
+            player.getRollsPlayed().add(1);
+            Faces[] rollResults = player.getDiceHolder().getFaces().toArray(Faces[]::new);
 
-        // Log each roll the user plays in their turn
-        GameLogger.debugLog(String.format(
-                "Roll #%d: %s",
-                player.getRollsPlayed().getCount(),
-                Arrays.toString(rollResults)
-        ));
+            // Log each roll the user plays in their turn
+            GameLogger.debugLog(String.format(
+                    "Roll #%d: %s",
+                    player.getRollsPlayed().getCount(),
+                    Arrays.toString(rollResults)
+            ));
+        }
     }
 
     @Override
@@ -41,17 +43,19 @@ public abstract class AbstractPlayerStrategy implements PlayerStrategy {
 
     @Override
     public void score(Player player) {
-        Map<Faces, Integer> rollMap = player.getDiceHolder().getFacesMap();
+        if(!player.isTurnOver()) {
+            Map<Faces, Integer> rollMap = player.getDiceHolder().getFacesMap();
 
-        // Add scores to this turns scorecard
-        player.getTurnScoreCard().addAll(rollMap);
+            // Add scores to this turns scorecard
+            player.getTurnScoreCard().addAll(rollMap);
+        }
     }
 
     @Override
     public void endTurn(Player player) {
         // Is the players turn over? Either by choice or 3 skulls rolled
         boolean threeSkullsRolled = GameRules.playerSkullsEndTurn(player);
-        boolean playerTurnChoice = this.shouldEndTurn(player);
+        boolean playerTurnChoice = player.isTurnOver() || this.shouldEndTurn(player);
 
         if(threeSkullsRolled) {
             // 3 skulls have been rolled so players turn is over
