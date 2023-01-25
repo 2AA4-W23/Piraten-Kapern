@@ -2,7 +2,6 @@ package pk.game.strategy.player.strategies;
 
 import pk.game.GameRules;
 import pk.game.Util;
-import pk.game.dice.Dice;
 import pk.game.player.Player;
 import pk.game.strategy.player.AbstractPlayerStrategy;
 
