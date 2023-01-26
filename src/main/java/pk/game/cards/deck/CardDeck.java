@@ -17,7 +17,6 @@ public class CardDeck {
         this.cards.addAll(List.of(cards));
         this.shuffle();
         this.counter = new Counter();
-        this.counter.setCount(1);
     }
 
     /**
