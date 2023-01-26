@@ -7,7 +7,7 @@ import pk.logging.GameLogger;
 public class Simulation {
 
     // The number of simulations to run
-    public static final int NUM_SIMS = 1000;
+    public static final int NUM_SIMS = 42;
 
     // Class fields
     private final Game game;
