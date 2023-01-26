@@ -12,3 +12,5 @@
 | 20/01/2023   | Implemented the following features:<br/>1. Set of identical objects scoring<br/>2. Bonus chest scoring  |
 | 21/01/2023   | Implemented the following features:<br/>1. Complete bonus chest feature<br/>2. Work on combination strategy |
 | 22/01/2023   | Implemented the following features:<br/>1. Get player strategies through the command line arguments<br/>2. Add feature to simulate games with 2-5 players |
+| 23/01/2023   | Implemented the following tasks of cards features:<br/>1. Card interface that all cards inherit<br/>2. Abstract card class that adds default features to the cards<br/>3. Implement the sea battle card<br/>4. Start working on card deck implementation<br/>5. Start working on player using card |
+| 24/01/2023   | Completed cards feature |
