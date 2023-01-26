@@ -1,11 +1,6 @@
 package pk.game.score.scorecard.scorecards;
 
-import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.AbstractScoreCard;
-
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 
 public class GameScoreCard extends AbstractScoreCard {
 

@@ -7,7 +7,6 @@ import pk.game.dice.holder.DiceHolder;
 import pk.game.score.scorecard.scorecards.GameScoreCard;
 import pk.game.score.scorecard.scorecards.TurnScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
-import pk.game.strategy.player.strategies.RandomStrategy;
 import pk.logging.GameLogger;
 
 import java.util.Objects;
