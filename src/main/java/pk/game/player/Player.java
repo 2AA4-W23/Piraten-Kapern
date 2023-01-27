@@ -154,13 +154,11 @@ public class Player {
         do {
             GameLogger.debugLog(String.format("Using strategy: %s", strategy.getClass().getSimpleName()));
             strategy.use(this);
+            card.use(this);
         } while (!this.isTurnOver()); // Is the players turn not yet over?
 
         // Increment number of turns played
         this.getTurnsPlayed().add(1);
-
-        // Use the card on the player
-        card.use(this);
 
         // Log what has been collected during this turn
         GameLogger.debugLog(String.format(
