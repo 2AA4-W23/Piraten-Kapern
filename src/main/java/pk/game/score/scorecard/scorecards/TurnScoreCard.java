@@ -38,7 +38,7 @@ public class TurnScoreCard extends AbstractScoreCard {
      * @param map The map of the scorables to add and their counts
      */
     public void addAll(Map<? extends Scorable, Integer> map) {
-        this.clear(); // Clear old scores from last roll
+        super.clear(); // Clear old scores from last roll
 
         super.getScoreCount().putAll(map); // Add new scores
 
