@@ -17,6 +17,20 @@ public class TurnScoreCard extends AbstractScoreCard {
     public void addAll(Map<? extends Scorable, Integer> map) {
         this.clear(); // Clear old scores from last roll
 
+        super.getScoreCount().putAll(map); // Add new scores
+        this.addCombos();
+
+        if(GameRules.isBonusChestRoll(this)) { // Is there a bonus chest in the scorecard?
+            this.addScore(Bonus.CHEST, 1);
+        }
+    }
+
+    /**
+     * Check for combinations and add them to scorecard
+     */
+    private void addCombos() {
+        Map<Scorable, Integer> map = Map.copyOf(super.getScoreCount());
+
         // Look for combinations
         map.forEach((k, v) -> {
             Groups group = GameRules.GROUP_MAP.get(v);
@@ -24,10 +38,5 @@ public class TurnScoreCard extends AbstractScoreCard {
                 this.addScore(group, 1);
             }
         });
-        super.getScoreCount().putAll(map); // Add new scores
-
-        if(GameRules.isBonusChestRoll(this)) { // Is there a bonus chest in the scorecard?
-            this.addScore(Bonus.CHEST, 1);
-        }
     }
 }
