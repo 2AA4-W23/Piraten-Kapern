@@ -1,9 +1,6 @@
 package pk.game;
 
-import pk.game.cards.Card;
-import pk.game.cards.MonkeyBusinessCard;
-import pk.game.cards.NopCard;
-import pk.game.cards.SeaBattleCard;
+import pk.game.cards.*;
 import pk.game.dice.Dice;
 import pk.game.player.Player;
 import pk.game.score.scorable.Cards;
@@ -43,7 +40,8 @@ public class GameRules {
             new SeaBattleCard(Cards.SEA_BATTLE_1000, 4),
             new MonkeyBusinessCard(), new MonkeyBusinessCard(),
             new MonkeyBusinessCard(), new MonkeyBusinessCard(),
-            new NopCard(), new NopCard(), new NopCard(), new NopCard(),
+            new GoldCoinCard(), new GoldCoinCard(),
+            new GoldCoinCard(), new GoldCoinCard(),
             new NopCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
