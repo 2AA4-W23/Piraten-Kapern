@@ -26,6 +26,6 @@ public class DiamondCard extends AbstractCard {
     @Override
     public void action(Player player) {
         // Add diamond to player scorecard
-        player.getTurnScoreCard().putReserve(Faces.DIAMOND);
+        player.getTurnScoreCard().putReserve(Faces.DIAMOND, 1);
     }
 }

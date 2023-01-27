@@ -6,22 +6,23 @@ import pk.game.score.scorable.Groups;
 import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.AbstractScoreCard;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class TurnScoreCard extends AbstractScoreCard {
 
-    private Scorable reserve;
+    private final Map<Scorable, Integer> reserve;
 
     public TurnScoreCard() {
-        this.reserve = null;
+        this.reserve = new HashMap<>();
     }
 
     /**
      *
      * @return {@link TurnScoreCard#reserve}. This is a {@link Scorable} instance that will be added to the player roll
      */
-    public Scorable getReserve() {
+    private Map<Scorable, Integer> getReserve() {
         return this.reserve;
     }
 
@@ -29,8 +30,8 @@ public class TurnScoreCard extends AbstractScoreCard {
      *
      * @param reserve The {@link Scorable} to set {@link TurnScoreCard#reserve} to
      */
-    public void putReserve(Scorable reserve) {
-        this.reserve = reserve;
+    public void putReserve(Scorable reserve, Integer count) {
+        this.reserve.put(reserve, count);
     }
 
     /**
@@ -42,8 +43,8 @@ public class TurnScoreCard extends AbstractScoreCard {
 
         super.getScoreCount().putAll(map); // Add new scores
 
-        if(Objects.nonNull(this.getReserve())) // Does the player have a reserved scorable this turn?
-            super.addScore(this.getReserve(), 1);
+        if(!this.getReserve().isEmpty())  // Does the player have a reserved scorable this turn?
+            this.getReserve().forEach(super::addScore);
 
         this.addCombos();
 
@@ -70,6 +71,6 @@ public class TurnScoreCard extends AbstractScoreCard {
     @Override
     public void clear() {
         super.clear();
-        this.putReserve(null);
+        this.getReserve().clear();
     }
 }

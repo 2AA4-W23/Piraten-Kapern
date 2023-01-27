@@ -26,6 +26,6 @@ public class GoldCoinCard extends AbstractCard {
     @Override
     public void action(Player player) {
         // Add extra gold coin
-        player.getTurnScoreCard().putReserve(Faces.GOLD);
+        player.getTurnScoreCard().putReserve(Faces.GOLD, 1);
     }
 }
