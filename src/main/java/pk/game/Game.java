@@ -42,7 +42,7 @@ public class Game {
      */
     public void reset() {
         this.playerStream().forEach(Player::resetGame);
-        this.deck.shuffle();
+        this.deck.reset();
     }
 
     /**

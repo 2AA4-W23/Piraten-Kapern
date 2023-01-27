@@ -40,4 +40,12 @@ public class CardDeck {
 
         return card;
     }
+
+    /**
+     * Reset the card deck for a new game
+     */
+    public void reset() {
+        this.shuffle();
+        this.counter.reset();
+    }
 }
