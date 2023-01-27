@@ -44,12 +44,13 @@ public class GameRules {
             new GoldCoinCard(), new GoldCoinCard(),
             new DiamondCard(), new DiamondCard(),
             new DiamondCard(), new DiamondCard(),
-            new NopCard(), new NopCard(),
+            new SkullCard(1), new SkullCard(1),
+            new SkullCard(1), new SkullCard(2),
+            new SkullCard(2), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
-            new NopCard(), new NopCard(), new NopCard(),
-            new NopCard(), new NopCard(), new NopCard()
+            new NopCard(), new NopCard()
     };
 
     /**
