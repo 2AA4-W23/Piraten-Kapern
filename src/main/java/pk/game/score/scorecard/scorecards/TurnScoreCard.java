@@ -2,6 +2,7 @@ package pk.game.score.scorecard.scorecards;
 
 import pk.game.GameRules;
 import pk.game.score.scorable.Bonus;
+import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Groups;
 import pk.game.score.scorable.Scorable;
 import pk.game.score.scorecard.AbstractScoreCard;
@@ -61,9 +62,11 @@ public class TurnScoreCard extends AbstractScoreCard {
 
         // Look for combinations
         map.forEach((k, v) -> {
-            Groups group = GameRules.GROUP_MAP.get(v);
-            if(Objects.nonNull(group)) {
-                this.addScore(group, 1);
+            if(!Faces.SKULL.equals(k)) {
+                Groups group = GameRules.GROUP_MAP.get(v);
+                if (Objects.nonNull(group)) {
+                    this.addScore(group, 1);
+                }
             }
         });
     }
