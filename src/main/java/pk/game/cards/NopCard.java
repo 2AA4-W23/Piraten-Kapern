@@ -19,7 +19,10 @@ public class NopCard extends AbstractCard {
     }
 
     @Override
-    public void use(Player player) {
-        super.use(player);
+    public boolean shouldUse(Player player) {
+        return false;
     }
+
+    @Override
+    public void action(Player player) {}
 }

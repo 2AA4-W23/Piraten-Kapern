@@ -21,7 +21,16 @@ public abstract class AbstractCard implements Card {
     public abstract PlayerStrategy getStrategy();
 
     @Override
+    public abstract boolean shouldUse(Player player);
+
+    @Override
+    public abstract void action(Player player);
+
+    @Override
     public void use(Player player) {
-        GameLogger.debugLog(String.format("Using the %s card", this.getName()));
+        if(this.shouldUse(player)) {
+            GameLogger.debugLog(String.format("Using the %s card", this.getName()));
+            this.action(player);
+        }
     }
 }
