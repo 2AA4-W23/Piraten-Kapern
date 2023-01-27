@@ -1,5 +1,6 @@
 package pk.game.cards;
 
+import pk.game.GameRules;
 import pk.game.player.Player;
 import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Scorable;
@@ -46,7 +47,7 @@ public class SeaBattleCard extends AbstractCard {
         super.use(player);
         // The number of swords rolled by the player
         int numSwords = player.getTurnScoreCard().getScore(Faces.SABER);
-        if(numSwords >= this.getNumSwords()) { // Did the player roll enough swords?
+        if(numSwords >= this.getNumSwords() && !GameRules.playerSkullsEndTurn(player)) { // Did the player roll enough swords?
             player.getTurnScoreCard().addScore(this.getScoreable(), 1);
         } else {
             player.getTurnScoreCard().clear();
