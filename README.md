@@ -79,7 +79,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F10II | Implement 'Monkey Business' card strategy | D | 26/01/23 | 26/01/23
 | -   | F11 | Fix bug where if player uses sea battle strategy they should lose points if they roll 3 skulls | D | 26/01/23 | 26/01/23
 | -   | F12 | Implement gold coin card | D | 27/01/23 | 27/01/23
-| -   | F13 | Implement diamond card | P |  |
+| -   | F13 | Implement diamond card | P | 27/01/23 |
 | -   | F14 | Implement skull card | P |  |
 | -   | F15 | Implement Apache Commons CLI library | P |  |
 | -   | F16 | Implement client choosing the number of games to run in a simulation | P |  |
