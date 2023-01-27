@@ -81,8 +81,10 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F12 | Implement gold coin card | D | 27/01/23 | 27/01/23
 | -   | F13 | Implement diamond card | D | 27/01/23 | 27/01/23
 | -   | F14 | Implement skull card | D | 27/01/23 | 27/01/23
-| -   | F15 | Implement captain card | D | 27/01/23 | 27/01/23 
-| -   | F16 | Implement Apache Commons CLI library | P |  |
-| -   | F17 | Implement client choosing the number of games to run in a simulation | P |  |
+| -   | F15 | Implement captain card | D | 27/01/23 | 27/01/23
+| -   | F16 | Bug Fix: Only allow player with combo strategy to use card strategies | P |  |
+| -   | F17 | Bug Fix: Bonus chest calculation wrong after dice cards added | P |  |
+| -   | F18 | Implement Apache Commons CLI library | P |  |
+| -   | F19 | Implement client choosing the number of games to run in a simulation | P |  |
 | ... | ... | ... |
 
