@@ -47,8 +47,8 @@ public class GameRules {
             new SkullCard(1), new SkullCard(1),
             new SkullCard(1), new SkullCard(2),
             new SkullCard(2), new NopCard(),
-            new NopCard(), new NopCard(), new NopCard(),
-            new NopCard(), new NopCard(), new NopCard(),
+            new CaptainCard(), new CaptainCard(), new CaptainCard(),
+            new CaptainCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard()
     };

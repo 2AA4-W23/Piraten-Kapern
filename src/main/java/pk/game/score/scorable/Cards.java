@@ -3,7 +3,8 @@ package pk.game.score.scorable;
 public enum Cards implements Scorable {
     SEA_BATTLE_300(300),
     SEA_BATTLE_500(500),
-    SEA_BATTLE_1000(1000);
+    SEA_BATTLE_1000(1000),
+    CAPTAIN_TOKEN(100);
 
     final int score;
 
