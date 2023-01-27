@@ -62,6 +62,15 @@ public abstract class AbstractScoreCard {
     }
 
     /**
+     *
+     * @param scorable The {@link Scorable} to remove from
+     * @param count The number of occurrences to remove
+     */
+    public void removeScore(Scorable scorable, int count) {
+        this.getScoreCount().compute(scorable, (k, v) -> Objects.nonNull(v) && v != 0 ? v-count : 0);
+    }
+
+    /**
      * Clear the {@link AbstractScoreCard}
      */
     public void clear() {
