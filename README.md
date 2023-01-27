@@ -75,7 +75,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F08VI | Prevent access to scorecard hashmap | D | 24/01/23 | 24/01/23
 | -   | F09 | Improve combo strategy to increase size of combinations | D | 24/01/23 | 25/01/23
 | -   | F10 | Add 'Monkey Business' card | P | 26/01/23 |
-| -   | F10I | Implement 'Monkey Business' card | P | 26/01/23 |
+| -   | F10I | Implement 'Monkey Business' card | P | 26/01/23 | 26/01/23
 | -   | F10II | Implement 'Monkey Business' card strategy | P |  |
 | ... | ... | ... |
 
