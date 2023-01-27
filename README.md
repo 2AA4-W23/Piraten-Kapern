@@ -81,7 +81,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F12 | Implement gold coin card | D | 27/01/23 | 27/01/23
 | -   | F13 | Implement diamond card | D | 27/01/23 | 27/01/23
 | -   | F14 | Implement skull card | D | 27/01/23 | 27/01/23
-| -   | F15 | Implement captain card | P | 27/01/23 | 
+| -   | F15 | Implement captain card | D | 27/01/23 | 27/01/23 
 | -   | F16 | Implement Apache Commons CLI library | P |  |
 | -   | F17 | Implement client choosing the number of games to run in a simulation | P |  |
 | ... | ... | ... |
