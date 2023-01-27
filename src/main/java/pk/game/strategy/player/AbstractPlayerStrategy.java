@@ -60,9 +60,9 @@ public abstract class AbstractPlayerStrategy implements PlayerStrategy {
         if(threeSkullsRolled) {
             // 3 skulls have been rolled so players turn is over
             GameLogger.debugLog(String.format(
-                    "Player #%d turn ended because %d skulls have been rolled",
+                    "Player #%d turn ended because %d skulls have been collected",
                     player.getId(),
-                    player.getDiceHolder().getSkullCount()
+                    player.getTurnScoreCard().getScore(Faces.SKULL)
             ));
         } else if(playerTurnChoice) {
             // Player decided to stop rolling

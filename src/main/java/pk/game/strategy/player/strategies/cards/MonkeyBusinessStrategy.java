@@ -21,7 +21,7 @@ public class MonkeyBusinessStrategy extends AbstractCardStrategy<MonkeyBusinessC
 
     @Override
     public boolean shouldEndTurn(Player player) {
-        return player.getDiceHolder().getSkullCount() == 2;
+        return player.getTurnScoreCard().getScore(Faces.SKULL) == 2;
     }
 
     /**

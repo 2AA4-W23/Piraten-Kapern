@@ -35,7 +35,7 @@ public class ComboStrategy extends AbstractPlayerStrategy {
     @Override
     public boolean shouldEndTurn(Player player) {
         // Did the player get 2 skulls OR does the player not have enough dice to roll another combination?
-        return player.getDiceHolder().getSkullCount() == 2;
+        return player.getTurnScoreCard().getScore(Faces.SKULL) == 2;
     }
 
     /**
