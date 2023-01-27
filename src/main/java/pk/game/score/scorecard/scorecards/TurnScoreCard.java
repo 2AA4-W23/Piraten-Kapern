@@ -20,7 +20,7 @@ public class TurnScoreCard extends AbstractScoreCard {
 
     /**
      *
-     * @return {@link TurnScoreCard#reserve}. This is a {@link Scorable} instance that will be added to the player roll
+     * @return {@link TurnScoreCard#reserve}. This is a {@link Map} with all the scorable instances that will be added to the player roll
      */
     private Map<Scorable, Integer> getReserve() {
         return this.reserve;
@@ -28,7 +28,7 @@ public class TurnScoreCard extends AbstractScoreCard {
 
     /**
      *
-     * @param reserve The {@link Scorable} to set {@link TurnScoreCard#reserve} to
+     * @param reserve The {@link Scorable} to add to {@link TurnScoreCard#reserve}
      */
     public void putReserve(Scorable reserve, Integer count) {
         this.reserve.put(reserve, count);
