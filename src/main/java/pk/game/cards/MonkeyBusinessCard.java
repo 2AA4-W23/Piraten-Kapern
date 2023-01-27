@@ -5,6 +5,7 @@ import pk.game.player.Player;
 import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Groups;
 import pk.game.strategy.player.PlayerStrategy;
+import pk.game.strategy.player.strategies.cards.MonkeyBusinessStrategy;
 
 import java.util.Objects;
 
@@ -12,13 +13,16 @@ public class MonkeyBusinessCard extends AbstractCard {
 
     public static final String NAME = "Monkey Business";
 
+    private final MonkeyBusinessStrategy strategy;
+
     public MonkeyBusinessCard() {
         super(MonkeyBusinessCard.NAME);
+        this.strategy = new MonkeyBusinessStrategy(this);
     }
 
     @Override
     public PlayerStrategy getStrategy() {
-        return null;
+        return this.strategy;
     }
 
     @Override
