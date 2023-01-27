@@ -1,6 +1,7 @@
 package pk.game;
 
 import pk.game.cards.Card;
+import pk.game.cards.MonkeyBusinessCard;
 import pk.game.cards.NopCard;
 import pk.game.cards.SeaBattleCard;
 import pk.game.dice.Dice;
@@ -40,7 +41,8 @@ public class GameRules {
             new SeaBattleCard(Cards.SEA_BATTLE_500, 3),
             new SeaBattleCard(Cards.SEA_BATTLE_1000, 4),
             new SeaBattleCard(Cards.SEA_BATTLE_1000, 4),
-            new NopCard(), new NopCard(), new NopCard(), new NopCard(),
+            new MonkeyBusinessCard(), new MonkeyBusinessCard(),
+            new MonkeyBusinessCard(), new MonkeyBusinessCard(),
             new NopCard(), new NopCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
             new NopCard(), new NopCard(), new NopCard(),
