@@ -7,6 +7,7 @@ import pk.game.dice.holder.DiceHolder;
 import pk.game.score.scorecard.scorecards.GameScoreCard;
 import pk.game.score.scorecard.scorecards.TurnScoreCard;
 import pk.game.strategy.player.PlayerStrategy;
+import pk.game.strategy.player.strategies.ComboStrategy;
 import pk.logging.GameLogger;
 
 import java.util.Objects;
@@ -149,7 +150,8 @@ public class Player {
         ));
 
         // Select the player strategy to use
-        PlayerStrategy strategy = Objects.isNull(card.getStrategy()) ? this.strategy : card.getStrategy();
+        PlayerStrategy strategy = Objects.nonNull(card.getStrategy()) && this.strategy instanceof ComboStrategy
+                ? card.getStrategy() : this.strategy;
 
         do {
             GameLogger.debugLog(String.format("Using strategy: %s", strategy.getClass().getSimpleName()));
