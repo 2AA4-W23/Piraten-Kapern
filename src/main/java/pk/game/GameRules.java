@@ -117,6 +117,10 @@ public class GameRules {
         scoreContribDice += goldCount >= Groups.GROUP_OF_3.getGroupSize() ? -goldCount : 0;
         scoreContribDice += diamondCount >= Groups.GROUP_OF_3.getGroupSize() ? -diamondCount : 0;
 
+        // Ignore gold coins and diamonds added by the cards
+        scoreContribDice -= scoreCard.getFromReserve(Faces.GOLD);
+        scoreContribDice -= scoreCard.getFromReserve(Faces.DIAMOND);
+
 
         return scoreContribDice == GameRules.MAX_DICE;
     }

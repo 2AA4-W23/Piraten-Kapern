@@ -29,6 +29,15 @@ public class TurnScoreCard extends AbstractScoreCard {
 
     /**
      *
+     * @param key The {@link Scorable} key to get value of
+     * @return The value associated with the given key
+     */
+    public Integer getFromReserve(Scorable key) {
+        return this.getReserve().getOrDefault(key, 0);
+    }
+
+    /**
+     *
      * @param reserve The {@link Scorable} to add to {@link TurnScoreCard#reserve}
      */
     public void putReserve(Scorable reserve, Integer count) {
