@@ -46,4 +46,13 @@ public class InputHandler {
             System.exit(1);
         }
     }
+
+    /**
+     *
+     * @param option The key of the {@link Option} to get
+     * @return The {@link Option} instance from {@link InputHandler#OPTION}
+     */
+    public static Option getOption(String option) {
+        return (Option) InputHandler.OPTION.get(option).clone();
+    }
 }
