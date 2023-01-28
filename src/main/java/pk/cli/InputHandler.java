@@ -63,4 +63,43 @@ public class InputHandler {
     public void printHelp() {
         this.formatter.printHelp(200, "Piraten Kapern", "", options, "");
     }
+
+    /**
+     *
+     * @param option The {@link Option} to get value of from the command line
+     * @return The value given to this {@link Option}
+     * @throws IllegalArgumentException If this {@link Option} is not a part of the parsed {@link Options}
+     */
+    public String getOptionValue(Option option) throws IllegalArgumentException {
+        if(!OPTION.containsValue(option))
+            throw new IllegalArgumentException("Invalid option!");
+
+        return this.cmd.getOptionValue(option);
+    }
+
+    /**
+     *
+     * @param option The {@link Option} to get values of from the command line
+     * @return A {@link String}[] containing the values given to this {@link Option}
+     * @throws IllegalArgumentException If this {@link Option} is not a part of the parsed {@link Options}
+     */
+    public String[] getOptionValues(Option option) throws IllegalArgumentException {
+        if(!OPTION.containsValue(option))
+            throw new IllegalArgumentException("Invalid option!");
+
+        return this.cmd.getOptionValues(option);
+    }
+
+    /**
+     *
+     * @param option The {@link Option} to get from the command line
+     * @return Whether this {@link Option} has been passed in or not
+     * @throws IllegalArgumentException If this {@link Option} is not a part of the parsed {@link Options}
+     */
+    public boolean hasOption(Option option) throws IllegalArgumentException {
+        if(!OPTION.containsValue(option))
+            throw new IllegalArgumentException("Invalid option!");
+
+        return this.cmd.hasOption(option);
+    }
 }
