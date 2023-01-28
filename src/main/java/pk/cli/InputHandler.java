@@ -43,6 +43,7 @@ public class InputHandler {
             this.cmd = parser.parse(this.options, args);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
+            this.printHelp();
             System.exit(1);
         }
     }
@@ -54,5 +55,12 @@ public class InputHandler {
      */
     public static Option getOption(String option) {
         return (Option) InputHandler.OPTION.get(option).clone();
+    }
+
+    /**
+     * Print the help string to the user
+     */
+    public void printHelp() {
+        this.formatter.printHelp(200, "Piraten Kapern", "", options, "");
     }
 }
