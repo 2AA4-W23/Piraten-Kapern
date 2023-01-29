@@ -17,3 +17,5 @@
 | 25/01/2023   | Complete feature to improve combination strategy to roll the largest possible combo |
 | 26/01/2023   | Implemented the following features:<br/>1. Monkey business card<br/>2. Fix sea battle card so player loses points if they rolled the right number of sabers but rolled 3 dice |
 | 27/01/2023   | Implemented the following features:<br/>1. The cards that act like dice (Gold coin, Diamond, and Skull)<br/>2. The captain card<br/>3. Bug fix to allow only players with combo strategy to use card strategies<br/>4. Fix bug brought on by cards that act like dice feature that affected the calculation of the bonus chest |
+| 28/01/2023   | Implemented the following features:<br/>1. Apache CLI to get cmd input<br/>2. Scorecard system optimization<br/>3. Start implementing user choosing the number of games to simulate |
+| 29/01/2023   | Completed implementing user choosing the number of games to simulate |
