@@ -87,7 +87,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F18 | Implement Apache Commons CLI library | D | 28/01/23 | 28/01/23
 | -   | F19 | Optimize scorecard system | P | 28/01/23 |
 | -   | F19I | Create scorecard interface | D | 28/01/23 | 28/01/23
-| -   | F19II | Game and turn scorecards implement scorecard interface | P | 28/01/23 |
+| -   | F19II | Game and turn scorecards implement scorecard interface | D | 28/01/23 | 28/01/23
 | -   | F20 | Implement client choosing the number of games to run in a simulation | P |  |
 | ... | ... | ... |
 
