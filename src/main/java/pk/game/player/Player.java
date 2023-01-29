@@ -154,7 +154,7 @@ public class Player {
                 ? card.getStrategy() : this.strategy;
 
         do {
-            GameLogger.debugLog(String.format("Using strategy: %s", this.getStrategyName()));
+            GameLogger.debugLog(String.format("Using strategy: %s", strategy.getClass().getSimpleName()));
             card.use(this);
             strategy.use(this);
             card.use(this);
