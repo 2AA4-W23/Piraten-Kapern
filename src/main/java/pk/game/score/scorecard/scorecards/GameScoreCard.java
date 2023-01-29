@@ -1,16 +1,33 @@
 package pk.game.score.scorecard.scorecards;
 
-import pk.game.score.scorecard.AbstractScoreCard;
+import pk.game.score.scorecard.ScoreCard;
 
-public class GameScoreCard extends AbstractScoreCard {
+public class GameScoreCard implements ScoreCard {
+
+    private int score;
+
+    @Override
+    public void clear() {
+        this.score = 0;
+    }
+
+    @Override
+    public int totalScore() {
+        return this.score;
+    }
 
     /**
      *
-     * @param scoreCard The {@link AbstractScoreCard} to merge into this one
+     * @param scoreCard The {@link TurnScoreCard} to merge into this one
      */
-    public void merge(AbstractScoreCard scoreCard) {
-        scoreCard.getScoreEntrySet().forEach(e -> {
-            super.getScoreCount().merge(e.getKey(), e.getValue(), Integer::sum);
-        });
+    public void merge(ScoreCard scoreCard) {
+        this.score += scoreCard.totalScore();
+    }
+
+    @Override
+    public String toString() {
+        return "GameScoreCard{" +
+                "score=" + score +
+                '}';
     }
 }

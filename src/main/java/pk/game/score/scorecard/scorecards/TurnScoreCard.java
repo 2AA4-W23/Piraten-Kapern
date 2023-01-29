@@ -5,19 +5,31 @@ import pk.game.score.scorable.Bonus;
 import pk.game.score.scorable.Faces;
 import pk.game.score.scorable.Groups;
 import pk.game.score.scorable.Scorable;
-import pk.game.score.scorecard.AbstractScoreCard;
+import pk.game.score.scorecard.ScoreCard;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
-public class TurnScoreCard extends AbstractScoreCard {
+public class TurnScoreCard implements ScoreCard {
 
+    private final Map<Scorable, Integer> scoreCount;
     private final Map<Scorable, Integer> reserve;
 
     public TurnScoreCard() {
+        this.scoreCount = new HashMap<>();
         this.reserve = new HashMap<>();
     }
+
+    /**
+     *
+     * @return The {@link HashMap<>} used to keep track of the score
+     */
+    private Map<Scorable, Integer> getScoreCount() {
+        return this.scoreCount;
+    }
+
 
     /**
      *
@@ -46,15 +58,72 @@ public class TurnScoreCard extends AbstractScoreCard {
 
     /**
      *
+     * @param key The key to get the value of
+     * @return The value assigned to the key or 0 if there is no assignment
+     */
+    public Integer getScore(Scorable key) {
+        return this.getScoreCount().getOrDefault(key, 0);
+    }
+
+    /**
+     *
+     * @return The set of all {@link Map.Entry} in the {@link HashMap}
+     */
+    public Set<Map.Entry<Scorable, Integer>> getScoreEntrySet() {
+        return this.getScoreCount().entrySet();
+    }
+
+    /**
+     *
+     * @param key The key to put into the {@link HashMap}
+     * @param count The value of key
+     */
+    public void putScore(Scorable key, Integer count) {
+        this.getScoreCount().put(key, count);
+    }
+
+    /**
+     *
+     * @param face The {@link Scorable} to add
+     * @param count The number of this {@link Faces} to add to the score
+     */
+    public void addScore(Scorable face, int count) {
+        // If there is already a record of this Face just add to it
+        this.getScoreCount().compute(face, (k, v) -> Objects.isNull(v) ? count : v+count);
+    }
+
+    /**
+     *
+     * @param scorable The {@link Scorable} to remove from
+     * @param count The number of occurrences to remove
+     */
+    public void removeScore(Scorable scorable, int count) {
+        this.getScoreCount().compute(scorable, (k, v) -> Objects.nonNull(v) && v != 0 ? v-count : 0);
+    }
+
+    /**
+     *
+     * @return The total score found in this score card
+     */
+    @Override
+    public int totalScore() {
+        Set<Map.Entry<Scorable, Integer>> entrySet = this.getScoreEntrySet();
+
+        // Sum up the score
+        return entrySet.stream().mapToInt(e -> e.getKey().getScore()*e.getValue()).sum();
+    }
+
+    /**
+     *
      * @param map The map of the scorables to add and their counts
      */
     public void addAll(Map<? extends Scorable, Integer> map) {
-        super.clear(); // Clear old scores from last roll
+        this.getScoreCount().clear(); // Clear old scores from last roll
 
-        super.getScoreCount().putAll(map); // Add new scores
+        this.getScoreCount().putAll(map); // Add new scores
 
         if(!this.getReserve().isEmpty())  // Does the player have a reserved scorable this turn?
-            this.getReserve().forEach(super::addScore);
+            this.getReserve().forEach(this::addScore);
 
         this.addCombos();
 
@@ -67,7 +136,7 @@ public class TurnScoreCard extends AbstractScoreCard {
      * Check for combinations and add them to scorecard
      */
     private void addCombos() {
-        Map<Scorable, Integer> map = Map.copyOf(super.getScoreCount());
+        Map<Scorable, Integer> map = Map.copyOf(this.getScoreCount());
 
         // Look for combinations
         map.forEach((k, v) -> {
@@ -82,7 +151,12 @@ public class TurnScoreCard extends AbstractScoreCard {
 
     @Override
     public void clear() {
-        super.clear();
+        this.getScoreCount().clear();
         this.getReserve().clear();
+    }
+
+    @Override
+    public String toString() {
+        return this.getScoreCount().toString();
     }
 }

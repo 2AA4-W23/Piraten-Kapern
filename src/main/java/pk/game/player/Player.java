@@ -154,7 +154,7 @@ public class Player {
                 ? card.getStrategy() : this.strategy;
 
         do {
-            GameLogger.debugLog(String.format("Using strategy: %s", strategy.getClass().getSimpleName()));
+            GameLogger.debugLog(String.format("Using strategy: %s", this.getStrategyName()));
             card.use(this);
             strategy.use(this);
             card.use(this);
@@ -193,7 +193,6 @@ public class Player {
     public String toString() {
         return "Player #" + this.getId() + " {" +
                 "diceHolder=" + this.getDiceHolder() +
-                ", scoreCard=" + this.getScoreCard() +
                 ", Total Score= " + this.getScoreCard().totalScore() +
                 ", turnScoreCard=" + this.getTurnScoreCard() +
                 ", Turn Total Score= " + this.getTurnScoreCard().totalScore() +
