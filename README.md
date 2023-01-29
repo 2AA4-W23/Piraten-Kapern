@@ -85,7 +85,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F16 | Bug Fix: Only allow player with combo strategy to use card strategies | D | 27/01/23 | 27/01/23
 | -   | F17 | Bug Fix: Bonus chest calculation wrong after dice cards added | D | 27/01/23 | 27/01/23
 | -   | F18 | Implement Apache Commons CLI library | D | 28/01/23 | 28/01/23
-| -   | F19 | Optimize scorecard system | P | 28/01/23 |
+| -   | F19 | Optimize scorecard system | D | 28/01/23 | 28/01/23
 | -   | F19I | Create scorecard interface | D | 28/01/23 | 28/01/23
 | -   | F19II | Game and turn scorecards implement scorecard interface | D | 28/01/23 | 28/01/23
 | -   | F20 | Implement client choosing the number of games to run in a simulation | P |  |
