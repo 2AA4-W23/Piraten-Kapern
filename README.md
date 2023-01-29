@@ -11,15 +11,15 @@
     * `mvn compile`
   * To run the project in development mode (without tracing mode):
     * Strategies 3 to 5 are optional 
-    * `mvn -q exec:java -D exec.args="strategy1 strategy2 strategy3 strategy4 strategy5"`
+    * `mvn -q exec:java -D exec.args="-g NUMBER_OF_GAMES -s strategy1 strategy2 strategy3 strategy4 strategy5"`
   * To run the project in development mode (with tracing mode):
     * Strategies 3 to 5 are optional
-    * `mvn -q exec:java -D TRACE -D exec.args="strategy1 strategy2 strategy3 strategy4 strategy5"`
+    * `mvn -q exec:java -D exec.args="-g NUMBER_OF_GAMES -T -s strategy1 strategy2 strategy3 strategy4 strategy5"`
   * To package the project as a turn-key artefact:
     * `mvn package`
   * To run the packaged delivery:
     *  Strategies 3 to 5 are optional
-    * `java -jar target/piraten-karpen-jar-with-dependencies.jar strategy1 strategy2 strategy3 strategy4 strategy5` 
+    * `java -jar target/piraten-karpen-jar-with-dependencies.jar -g NUMBER_OF_GAMES -s strategy1 strategy2 strategy3 strategy4 strategy5` 
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 
