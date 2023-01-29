@@ -9,7 +9,7 @@ import org.apache.logging.log4j.util.StackLocator;
 public class GameLogger {
 
     // Should the debug logs be printed to the console?
-    public static boolean SHOULD_LOG_DEBUG = System.getProperties().containsKey("TRACE");
+    public static boolean SHOULD_LOG_DEBUG = false;
 
     private GameLogger() {}
 
