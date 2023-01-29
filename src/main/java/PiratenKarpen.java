@@ -1,3 +1,4 @@
+import org.apache.commons.cli.Option;
 import pk.Simulation;
 import pk.cli.InputHandler;
 import pk.game.GameRules;
@@ -21,11 +22,12 @@ public class PiratenKarpen {
         // Handle cmd input
         handleDebugInput(handler);
         PlayerStrategy[] strategies = handleStrategyInput(handler);
+        Integer numGames = handleNumGamesInput(handler);
 
         System.out.println("Welcome to Piraten Karpen Simulator!");
 
         // Simulate the game
-        Simulation sim = new Simulation(strategies);
+        Simulation sim = new Simulation(numGames, strategies);
         sim.run();
 
         // Display simulation statistics
@@ -49,6 +51,43 @@ public class PiratenKarpen {
      */
     private static void handleDebugInput(InputHandler handler) {
         GameLogger.SHOULD_LOG_DEBUG = handler.hasOption(InputHandler.getOption(InputHandler.TRACE));
+    }
+
+    /**
+     *
+     * @param handler The {@link InputHandler} to use to get input
+     * @return The number of games to play in {@link Simulation} as per given by user
+     */
+    private static Integer handleNumGamesInput(InputHandler handler) {
+        Option gameOption = InputHandler.getOption(InputHandler.GAMES);
+
+        if(handler.hasOption(gameOption)) { // Did the player pass in the number of games?
+            String arg = handler.getOptionValue(gameOption);
+
+            int numGames = 0;
+
+            try {
+                numGames = Integer.parseInt(arg);
+            } catch(NumberFormatException e) { // Input not a number?
+                System.out.printf("Invalid number %s\n", arg);
+                handler.printHelp();
+                System.exit(1);
+            }
+
+            if(numGames < GameRules.MIN_GAMES) { // Less than the minimum games allowed to play?
+                System.out.println("Need to at least simulate 1 game!");
+                handler.printHelp();
+                System.exit(1);
+            }
+
+            return numGames;
+        }
+
+        // Missing number of games?
+        System.out.println("Missing number of games to simulate!");
+        handler.printHelp();
+        System.exit(1);
+        return null;
     }
 
     /**

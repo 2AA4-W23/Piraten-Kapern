@@ -6,13 +6,12 @@ import pk.logging.GameLogger;
 
 public class Simulation {
 
-    // The number of simulations to run
-    public static final int NUM_SIMS = 42;
-
     // Class fields
     private final Game game;
+    private final int numGames;
 
-    public Simulation(PlayerStrategy... strategies) {
+    public Simulation(Integer numGames, PlayerStrategy... strategies) {
+        this.numGames = numGames;
         this.game = new Game(strategies);
     }
 
@@ -30,7 +29,7 @@ public class Simulation {
     public void run() {
         System.out.println("Simulating...");
         // Simulate games
-        for(int i=1; i <= Simulation.NUM_SIMS; i++) {
+        for(int i=1; i <= this.numGames; i++) {
             GameLogger.debugLog(String.format("Game #%d\n", i));
 
             // Simulate the game
@@ -48,7 +47,7 @@ public class Simulation {
         // Calculate win statistics for all players
         this.game.playerStream().forEach(p -> {
             int playerWins = p.getWins().getCount();
-            double playerWinRate = playerWins/(double)Simulation.NUM_SIMS;
+            double playerWinRate = playerWins/(double)this.numGames;
             System.out.printf(
                     "Player %d won %%%.2f of the games!\n",
                     p.getId(),
