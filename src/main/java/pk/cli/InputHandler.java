@@ -9,6 +9,7 @@ public class InputHandler {
     public static final String STRATEGIES = "strategies";
     public static final String TRACE = "TRACE";
     public static final String HELP = "help";
+    public static final String GAMES = "games";
     private static final Map<String, Option> OPTION = Map.of(
             STRATEGIES, Option.builder()
                     .argName("strategy1> <strategy2> ... <strategy5")
@@ -31,6 +32,14 @@ public class InputHandler {
                     .longOpt(HELP)
                     .desc("display help menu")
                     .hasArg(false)
+                    .required(false)
+                    .build(),
+            GAMES, Option.builder()
+                    .option(GAMES.substring(0, 1))
+                    .longOpt(GAMES)
+                    .desc("set the number of games to run in simulation")
+                    .hasArg(true)
+                    .numberOfArgs(1)
                     .required(false)
                     .build()
     );
