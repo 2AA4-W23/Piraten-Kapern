@@ -8,6 +8,7 @@ public class InputHandler {
 
     public static final String STRATEGIES = "strategies";
     public static final String TRACE = "TRACE";
+    public static final String HELP = "help";
     private static final Map<String, Option> OPTION = Map.of(
             STRATEGIES, Option.builder()
                     .argName("strategy1> <strategy2> ... <strategy5")
@@ -15,13 +16,20 @@ public class InputHandler {
                     .longOpt(STRATEGIES)
                     .hasArgs()
                     .valueSeparator(' ')
-                    .required(true)
+                    .required(false)
                     .desc("set number of players in the game and their strategies (combo or random)")
                     .build(),
             TRACE, Option.builder()
                     .option(TRACE.substring(0, 1))
                     .longOpt(TRACE)
                     .desc("enables TRACING mode")
+                    .hasArg(false)
+                    .required(false)
+                    .build(),
+            HELP, Option.builder()
+                    .option(HELP.substring(0, 1))
+                    .longOpt(HELP)
+                    .desc("display help menu")
                     .hasArg(false)
                     .required(false)
                     .build()
