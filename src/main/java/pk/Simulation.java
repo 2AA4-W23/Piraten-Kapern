@@ -27,7 +27,7 @@ public class Simulation {
      * Run the simulation
      */
     public void run() {
-        System.out.println("Simulating...");
+        System.out.printf("Simulating %d games...\n", this.numGames);
         // Simulate games
         for(int i=1; i <= this.numGames; i++) {
             GameLogger.debugLog(String.format("Game #%d\n", i));
