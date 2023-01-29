@@ -88,6 +88,6 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | -   | F19 | Optimize scorecard system | D | 28/01/23 | 28/01/23
 | -   | F19I | Create scorecard interface | D | 28/01/23 | 28/01/23
 | -   | F19II | Game and turn scorecards implement scorecard interface | D | 28/01/23 | 28/01/23
-| -   | F20 | Implement client choosing the number of games to run in a simulation | P | 28/01/23 |
+| -   | F20 | Implement client choosing the number of games to run in a simulation | D | 28/01/23 | 29/01/23
 | ... | ... | ... |
 
